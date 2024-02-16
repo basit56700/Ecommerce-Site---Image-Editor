@@ -45,28 +45,7 @@
         </div>
       </div>
 
-      <!-- Order -->
-      <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-info shadow h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Order</div>
-                <div class="row no-gutters align-items-center">
-                  <div class="col-auto">
-                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{\App\Models\Order::countActiveOrder()}}</div>
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="col-auto">
-                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+     
       <!--Posts-->
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-warning shadow h-100 py-2">
@@ -84,7 +63,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    {{-- <div class="row">
 
       <!-- Area Chart -->
       <div class="col-xl-8 col-lg-7">
@@ -116,7 +95,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- Content Row -->
     
   </div>
@@ -142,9 +121,9 @@
       chart.draw(data, options);
   }
 </script>
-  {{-- line chart --}}
+
   <script type="text/javascript">
-    const url = "{{route('product.order.income')}}";
+    const url = "";
     // Set new default font family and font color to mimic Bootstrap's default styling
     Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
     Chart.defaults.global.defaultFontColor = '#858796';

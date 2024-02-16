@@ -6,7 +6,7 @@ use App\Models\PostCategory;
 use App\Models\Order;
 
 use App\Models\Shipping;
-use App\Models\Cart;
+
 // use Auth;
 class Helper{
     public static function messageList()
@@ -115,41 +115,11 @@ class Helper{
             return 0;
         }
     }
-    // Wishlist Count
-    public static function wishlistCount($user_id=''){
-       
-        if(Auth::check()){
-            if($user_id=="") $user_id=auth()->user()->id;
-            return Wishlist::where('user_id',$user_id)->where('cart_id',null)->sum('quantity');
-        }
-        else{
-            return 0;
-        }
-    }
+  
     
     
-    public static function getAllProductFromWishlist($user_id = '')
-    {
-        if (Auth::check()) {
-            if ($user_id == '') {
-                $user_id = auth()->user()->id;
-            }
-            return Wishlist::with('product')->where('user_id', $user_id)->where('cart_id', null)->get();
-        } else {
-            // Return an empty array if the user is not authenticated
-            return [];
-        }
-    }
+ 
     
-    public static function totalWishlistPrice($user_id=''){
-        if(Auth::check()){
-            if($user_id=="") $user_id=auth()->user()->id;
-            return Wishlist::where('user_id',$user_id)->where('cart_id',null)->sum('amount');
-        }
-        else{
-            return 0;
-        }
-    }
 
     // Total price with shipping and coupon
     public static function grandPrice($id,$user_id){

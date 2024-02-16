@@ -66,21 +66,7 @@
 											<!-- Description -->
 											<div class="short">
 												<h4>{{$product_detail->title}}</h4>
-												<div class="rating-main">
-													<ul class="rating">
-														@php
-															$rate=ceil($product_detail->getReview->avg('rate'))
-														@endphp
-															@for($i=1; $i<=5; $i++)
-																@if($rate>=$i)
-																	<li><i class="fa fa-star"></i></li>
-																@else 
-																	<li><i class="fa fa-star-o"></i></li>
-																@endif
-															@endfor
-													</ul>
-													<a href="#" class="total-review">({{$product_detail['getReview']->count()}}) Review</a>
-                                                </div>
+												
                                                 @php 
                                                     $after_discount=($product_detail->price-(($product_detail->price*$product_detail->discount)/100));
                                                 @endphp
@@ -117,32 +103,7 @@
 											<!--/ End Size -->
 											<!-- Product Buy -->
 											<div class="product-buy">
-												<form action="{{route('single-add-to-cart')}}" method="POST">
-													@csrf 
-													<div class="quantity">
-														<h6>Quantity :</h6>
-														<!-- Input Order -->
-														<div class="input-group">
-															<div class="button minus">
-																<button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-																	<i class="ti-minus"></i>
-																</button>
-															</div>
-															<input type="hidden" name="slug" value="{{$product_detail->slug}}">
-															<input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="1000" value="1" id="quantity">
-															<div class="button plus">
-																<button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
-																	<i class="ti-plus"></i>
-																</button>
-															</div>
-														</div>
-													<!--/ End Input Order -->
-													</div>
-													<div class="add-to-cart mt-4">
-														<button type="submit" class="btn">Add to cart</button>
-														<a href="{{route('add-to-wishlist',$product_detail->slug)}}" class="btn min"><i class="ti-heart"></i></a>
-													</div>
-												</form>
+												
 
 												<p class="cat">Category :<a href="{{route('product-cat',$product_detail->cat_info['slug'])}}">{{$product_detail->cat_info['title']}}</a></p>
 												@if($product_detail->sub_cat_info)
@@ -195,43 +156,7 @@
 																	<div class="review-inner">
 																			<!-- Form -->
 																@auth
-																<form class="form" method="post" action="{{route('review.store',$product_detail->slug)}}">
-                                                                    @csrf
-                                                                    <div class="row">
-                                                                        <div class="col-lg-12 col-12">
-                                                                            <div class="rating_box">
-                                                                                  <div class="star-rating">
-                                                                                    <div class="star-rating__wrap">
-                                                                                      <input class="star-rating__input" id="star-rating-5" type="radio" name="rate" value="5">
-                                                                                      <label class="star-rating__ico fa fa-star-o" for="star-rating-5" title="5 out of 5 stars"></label>
-                                                                                      <input class="star-rating__input" id="star-rating-4" type="radio" name="rate" value="4">
-                                                                                      <label class="star-rating__ico fa fa-star-o" for="star-rating-4" title="4 out of 5 stars"></label>
-                                                                                      <input class="star-rating__input" id="star-rating-3" type="radio" name="rate" value="3">
-                                                                                      <label class="star-rating__ico fa fa-star-o" for="star-rating-3" title="3 out of 5 stars"></label>
-                                                                                      <input class="star-rating__input" id="star-rating-2" type="radio" name="rate" value="2">
-                                                                                      <label class="star-rating__ico fa fa-star-o" for="star-rating-2" title="2 out of 5 stars"></label>
-                                                                                      <input class="star-rating__input" id="star-rating-1" type="radio" name="rate" value="1">
-																					  <label class="star-rating__ico fa fa-star-o" for="star-rating-1" title="1 out of 5 stars"></label>
-																					  @error('rate')
-																						<span class="text-danger">{{$message}}</span>
-																					  @enderror
-                                                                                    </div>
-                                                                                  </div>
-                                                                            </div>
-                                                                        </div>
-																		<div class="col-lg-12 col-12">
-																			<div class="form-group">
-																				<label>Write a review</label>
-																				<textarea name="review" rows="6" placeholder="" ></textarea>
-																			</div>
-																		</div>
-																		<div class="col-lg-12 col-12">
-																			<div class="form-group button5">	
-																				<button type="submit" class="btn">Submit</button>
-																			</div>
-																		</div>
-																	</div>
-																</form>
+																
 																@else 
 																<p class="text-center p-5">
 																	You need to <a href="{{route('login.form')}}" style="color:rgb(54, 54, 204)">Login</a> OR <a style="color:blue" href="{{route('register.form')}}">Register</a>
@@ -242,48 +167,7 @@
 																	</div>
 																</div>
 															
-																<div class="ratting-main">
-																	<div class="avg-ratting">
-																		{{-- @php 
-																			$rate=0;
-																			foreach($product_detail->rate as $key=>$rate){
-																				$rate +=$rate
-																			}
-																		@endphp --}}
-																		<h4>{{ceil($product_detail->getReview->avg('rate'))}} <span>(Overall)</span></h4>
-																		<span>Based on {{$product_detail->getReview->count()}} Comments</span>
-																	</div>
-																	@foreach($product_detail['getReview'] as $data)
-																	<!-- Single Rating -->
-																	<div class="single-rating">
-																		<div class="rating-author">
-																			@if($data->user_info['photo'])
-																			<img src="{{$data->user_info['photo']}}" alt="{{$data->user_info['photo']}}">
-																			@else 
-																			<img src="{{asset('backend/img/avatar.png')}}" alt="Profile.jpg">
-																			@endif
-																		</div>
-																		<div class="rating-des">
-																			<h6>{{$data->user_info['name']}}</h6>
-																			<div class="ratings">
-
-																				<ul class="rating">
-																					@for($i=1; $i<=5; $i++)
-																						@if($data->rate>=$i)
-																							<li><i class="fa fa-star"></i></li>
-																						@else 
-																							<li><i class="fa fa-star-o"></i></li>
-																						@endif
-																					@endfor
-																				</ul>
-																				<div class="rate-count">(<span>{{$data->rate}}</span>)</div>
-																			</div>
-																			<p>{{$data->review}}</p>
-																		</div>
-																	</div>
-																	<!--/ End Single Rating -->
-																	@endforeach
-																</div>
+																
 																
 																<!--/ End Review -->
 																
@@ -330,16 +214,7 @@
                                             <span class="price-dec">{{$data->discount}} % Off</span>
                                                                     {{-- <span class="out-of-stock">Hot</span> --}}
                                         </a>
-                                        <div class="button-head">
-                                            <div class="product-action">
-                                                <a data-toggle="modal" data-target="#modelExample" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-                                                <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-                                                <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-                                            </div>
-                                            <div class="product-action-2">
-                                                <a title="Add to cart" href="#">Add to cart</a>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                     <div class="product-content">
                                         <h3><a href="{{route('product-detail',$data->slug)}}">{{$data->title}}</a></h3>
@@ -397,21 +272,7 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div class="quickview-content">
                             <h2>Flared Shift Dress</h2>
-                            <div class="quickview-ratting-review">
-                                <div class="quickview-ratting-wrap">
-                                    <div class="quickview-ratting">
-                                        <i class="yellow fa fa-star"></i>
-                                        <i class="yellow fa fa-star"></i>
-                                        <i class="yellow fa fa-star"></i>
-                                        <i class="yellow fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <a href="#"> (1 customer review)</a>
-                                </div>
-                                <div class="quickview-stock">
-                                    <span><i class="fa fa-check-circle-o"></i> in stock</span>
-                                </div>
-                            </div>
+                            
                             <h3>$29.00</h3>
                             <div class="quickview-peragraph">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam.</p>
@@ -455,12 +316,7 @@
                                 </div>
                                 <!--/ End Input Order -->
                             </div>
-                            <div class="add-to-cart">
-                                <a href="#" class="btn">Add to cart</a>
-                                <a href="#" class="btn min"><i class="ti-heart"></i></a>
-                                <a href="#" class="btn min"><i class="fa fa-compress"></i></a>
-                            </div>
-                           
+                     
                         </div>
                     </div>
                 </div>
@@ -523,37 +379,6 @@
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
-    {{-- <script>
-        $('.cart').click(function(){
-            var quantity=$('#quantity').val();
-            var pro_id=$(this).data('id');
-            // alert(quantity);
-            $.ajax({
-                url:"{{route('add-to-cart')}}",
-                type:"POST",
-                data:{
-                    _token:"{{csrf_token()}}",
-                    quantity:quantity,
-                    pro_id:pro_id
-                },
-                success:function(response){
-                    console.log(response);
-					if(typeof(response)!='object'){
-						response=$.parseJSON(response);
-					}
-					if(response.status){
-						swal('success',response.msg,'success').then(function(){
-							document.location.href=document.location.href;
-						});
-					}
-					else{
-                        swal('error',response.msg,'error').then(function(){
-							document.location.href=document.location.href;
-						});
-                    }
-                }
-            })
-        });
-    </script> --}}
+ 
 
 @endpush

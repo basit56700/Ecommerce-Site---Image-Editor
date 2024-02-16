@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Models\Order;
-use App\Models\ProductReview;
+
 use App\Models\PostComment;
 use App\Rules\MatchOldPassword;
 use Hash;
@@ -88,18 +88,9 @@ class HomeController extends Controller
         // return $order;
         return view('user.order.show')->with('order',$order);
     }
-    // Product Review
-    public function productReviewIndex(){
-        $reviews=ProductReview::getAllUserReview();
-        return view('user.review.index')->with('reviews',$reviews);
-    }
+ 
 
-    public function productReviewEdit($id)
-    {
-        $review=ProductReview::find($id);
-        // return $review;
-        return view('user.review.edit')->with('review',$review);
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -108,25 +99,6 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function productReviewUpdate(Request $request, $id)
-    {
-        $review=ProductReview::find($id);
-        if($review){
-            $data=$request->all();
-            $status=$review->fill($data)->update();
-            if($status){
-                request()->session()->flash('success','Review Successfully updated');
-            }
-            else{
-                request()->session()->flash('error','Something went wrong! Please try again!!');
-            }
-        }
-        else{
-            request()->session()->flash('error','Review not found!!');
-        }
-
-        return redirect()->route('user.productreview.index');
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -134,18 +106,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function productReviewDelete($id)
-    {
-        $review=ProductReview::find($id);
-        $status=$review->delete();
-        if($status){
-            request()->session()->flash('success','Successfully deleted review');
-        }
-        else{
-            request()->session()->flash('error','Something went wrong! Try again');
-        }
-        return redirect()->route('user.productreview.index');
-    }
+    
 
     public function userComment()
     {

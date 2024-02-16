@@ -128,15 +128,7 @@
 
 
                                             </a>
-                                            <div class="button-head">
-                                                <div class="product-action">
-                                                    <a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-                                                    <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" ><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-                                                </div>
-                                                <div class="product-action-2">
-                                                    <a title="Add to cart" href="{{route('add-to-cart',$product->slug)}}">Add to cart</a>
-                                                </div>
-                                            </div>
+                                           
                                         </div>
                                         <div class="product-content">
                                             <h3><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a></h3>
@@ -222,15 +214,7 @@
                                     <img class="hover-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
                                     {{-- <span class="out-of-stock">Hot</span> --}}
                                 </a>
-                                <div class="button-head">
-                                    <div class="product-action">
-                                        <a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" ><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-                                    </div>
-                                    <div class="product-action-2">
-                                        <a href="{{route('add-to-cart',$product->slug)}}">Add to cart</a>
-                                    </div>
-                                </div>
+                              
                             </div>
                             <div class="product-content">
                                 <h3><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a></h3>
@@ -275,14 +259,7 @@
                             <div class="single-list">
                                 <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="list-image overlay">
-                                        @php
-                                            $photo=explode(',',$product->photo);
-                                            // dd($photo);
-                                        @endphp
-                                        <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
-                                        <a href="{{route('add-to-cart',$product->slug)}}" class="buy"><i class="fa fa-shopping-bag"></i></a>
-                                    </div>
+                                    
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12 no-padding">
                                     <div class="content">
@@ -414,36 +391,7 @@
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div class="quickview-content">
                                         <h2>{{$product->title}}</h2>
-                                        <div class="quickview-ratting-review">
-                                            <div class="quickview-ratting-wrap">
-                                                <div class="quickview-ratting">
-                                                    {{-- <i class="yellow fa fa-star"></i>
-                                                    <i class="yellow fa fa-star"></i>
-                                                    <i class="yellow fa fa-star"></i>
-                                                    <i class="yellow fa fa-star"></i>
-                                                    <i class="fa fa-star"></i> --}}
-                                                    @php
-                                                        $rate=DB::table('product_reviews')->where('product_id',$product->id)->avg('rate');
-                                                        $rate_count=DB::table('product_reviews')->where('product_id',$product->id)->count();
-                                                    @endphp
-                                                    @for($i=1; $i<=5; $i++)
-                                                        @if($rate>=$i)
-                                                            <i class="yellow fa fa-star"></i>
-                                                        @else
-                                                        <i class="fa fa-star"></i>
-                                                        @endif
-                                                    @endfor
-                                                </div>
-                                                <a href="#"> ({{$rate_count}} customer review)</a>
-                                            </div>
-                                            <div class="quickview-stock">
-                                                @if($product->stock >0)
-                                                <span><i class="fa fa-check-circle-o"></i> {{$product->stock}} in stock</span>
-                                                @else
-                                                <span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} out stock</span>
-                                                @endif
-                                            </div>
-                                        </div>
+                                        
                                         @php
                                             $after_discount=($product->price-($product->price*$product->discount)/100);
                                         @endphp
@@ -478,32 +426,7 @@
                                                 </div>
                                             </div>
                                         @endif
-                                        <form action="{{route('single-add-to-cart')}}" method="POST" class="mt-4">
-                                            @csrf
-                                            <div class="quantity">
-                                                <!-- Input Order -->
-                                                <div class="input-group">
-                                                    <div class="button minus">
-                                                        <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                            <i class="ti-minus"></i>
-                                                        </button>
-                                                    </div>
-													<input type="hidden" name="slug" value="{{$product->slug}}">
-                                                    <input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="1000" value="1">
-                                                    <div class="button plus">
-                                                        <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
-                                                            <i class="ti-plus"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <!--/ End Input Order -->
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button type="submit" class="btn">Add to cart</button>
-                                                <a href="{{route('add-to-wishlist',$product->slug)}}" class="btn min"><i class="ti-heart"></i></a>
-                                            </div>
-                                        </form>
-                                       
+                                        
                                     </div>
                                 </div>
                             </div>

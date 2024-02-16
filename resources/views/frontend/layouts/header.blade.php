@@ -20,7 +20,7 @@
                                             <li class="{{Request::path()=='blog' ? 'active' : ''}}"><a href="{{route('blog')}}">Blog</a></li>									
                                                
                                             <li class="{{Request::path()=='contact' ? 'active' : ''}}"><a href="{{route('contact')}}">Contact Us</a></li>
-                                            <li class="{{Request::path()=='contact' ? 'active' : ''}}"><a href="{{route('contact')}}">Contact Us</a></li>
+                                            <li class="{{Request::path()=='image' ? 'active' : ''}}"><a href="{{route('virtual-room')}}">Virtual Room</a></li>
                                         </ul>
                                     </div>
                                 </div>

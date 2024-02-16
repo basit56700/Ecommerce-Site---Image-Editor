@@ -5,14 +5,9 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\MessageController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\WishlistController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductReviewController;
-use App\Http\Controllers\PostCommentController;
-use App\Http\Controllers\CouponController;
-use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ImageHandlingController;
+
+
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\HomeController;
 
@@ -30,6 +25,9 @@ use \UniSharp\LaravelFilemanager\Lfm;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['prefix' => '/image'], function () {
+    Route::get('/', [ImageHandlingController::class, 'index'])->name('virtual-room');
+});
 
 // CACHE CLEAR ROUTE
 Route::get('cache-clear', function () {
@@ -68,30 +66,10 @@ Route::post('/product/search', [FrontendController::class, 'productSearch'])->na
 Route::get('/product-cat/{slug}', [FrontendController::class, 'productCat'])->name('product-cat');
 Route::get('/product-sub-cat/{slug}/{sub_slug}', [FrontendController::class, 'productSubCat'])->name('product-sub-cat');
 Route::get('/product-brand/{slug}', [FrontendController::class, 'productBrand'])->name('product-brand');
-// Cart section
-Route::post('/add-to-cart}', [CartController::class, 'addToCart'])->name('add-to-cart')->middleware('auth');
-Route::post('/add-to-cart', [CartController::class, 'singleAddToCart'])->name('single-add-to-cart')->middleware('auth');
-Route::get('cart-delete/{id}', [CartController::class, 'cartDelete'])->name('cart-delete');
-Route::post('cart-update', [CartController::class, 'cartUpdate'])->name('cart.update');
-
-Route::get('/cart', function () {
-    return view('frontend.pages.cart');
-})->name('cart');
-Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout')->middleware('user');
-// Wishlist
-Route::get('/wishlist', function () {
-    return view('frontend.pages.wishlist');
-})->name('wishlist');
-Route::post('cart/order', [OrderController::class, 'store'])->name('cart.order');
-Route::get('order/pdf/{id}', [OrderController::class, 'pdf'])->name('order.pdf');
-Route::get('/income', [OrderController::class, 'incomeChart'])->name('product.order.income');
 // Route::get('/user/chart',[AdminController::class, 'userPieChart'])->name('user.piechart');
 Route::get('/product-grids', [FrontendController::class, 'productGrids'])->name('product-grids');
 Route::get('/product-lists', [FrontendController::class, 'productLists'])->name('product-lists');
 Route::match(['get', 'post'], '/filter', [FrontendController::class, 'productFilter'])->name('shop.filter');
-// Order Track
-Route::get('/product/track', [OrderController::class, 'orderTrack'])->name('order.track');
-Route::post('product/track/order', [OrderController::class, 'productTrackOrder'])->name('product.track.order');
 // Blog
 Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
 Route::get('/blog-detail/{slug}', [FrontendController::class, 'blogDetail'])->name('blog.detail');
@@ -156,7 +134,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::post('change-password', [AdminController::class, 'changPasswordStore'])->name('change.password');
 });
 
-
+Route::get('/test ', [HomeController::class, 'index']);
 // User section start
 Route::group(['prefix' => '/user', 'middleware' => ['user']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('user');
@@ -167,12 +145,7 @@ Route::group(['prefix' => '/user', 'middleware' => ['user']], function () {
     Route::get('/order', "HomeController@orderIndex")->name('user.order.index');
     Route::get('/order/show/{id}', "HomeController@orderShow")->name('user.order.show');
     Route::delete('/order/delete/{id}', [HomeController::class, 'userOrderDelete'])->name('user.order.delete');
-    // Product Review
-    Route::get('/user-review', [HomeController::class, 'productReviewIndex'])->name('user.productreview.index');
-    Route::delete('/user-review/delete/{id}', [HomeController::class, 'productReviewDelete'])->name('user.productreview.delete');
-    Route::get('/user-review/edit/{id}', [HomeController::class, 'productReviewEdit'])->name('user.productreview.edit');
-    Route::patch('/user-review/update/{id}', [HomeController::class, 'productReviewUpdate'])->name('user.productreview.update');
-
+ 
     // Post comment
     Route::get('user-post/comment', [HomeController::class, 'userComment'])->name('user.post-comment.index');
     Route::delete('user-post/comment/delete/{id}', [HomeController::class, 'userCommentDelete'])->name('user.post-comment.delete');

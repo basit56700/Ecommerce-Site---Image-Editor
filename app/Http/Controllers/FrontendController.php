@@ -6,7 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\PostTag;
 use App\Models\PostCategory;
-use App\Models\Wishlist;
+
 use App\Models\Post;
 use App\Models\Cart;
 use App\Models\Brand;
@@ -51,14 +51,7 @@ class FrontendController extends Controller
     public function productDetail($slug){
         
         $product_detail = Product::getProductBySlug($slug);
-        if(Auth()->user()){
-            $wishList = Wishlist::where(['product_id' => $product_detail->id, 'user_id' => Auth()->user()->id])->first();
-    
-            // Initialize $inWishList
-            $inWishList = ($wishList) ? true : false;
-        
-            return view('frontend.pages.product_detail')->with(['product_detail' => $product_detail, 'inWishList' => $inWishList]);    
-        }
+     
         return view('frontend.pages.product_detail')->with(['product_detail' => $product_detail, 'inWishList' => false]);
     }
 

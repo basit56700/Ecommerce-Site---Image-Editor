@@ -33,13 +33,6 @@
         </a>
     </li>
 
-    <!-- Reviews -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('user.productreview.index')}}">
-            <i class="fas fa-comments"></i>
-            <span>Reviews</span></a>
-    </li>
-    
 
     <!-- Divider -->
     <hr class="sidebar-divider">
