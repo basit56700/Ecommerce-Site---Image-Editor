@@ -7,19 +7,21 @@
     <div class="room-list">
         <div class="room-item">
             <div class="shadow"></div>
-            <img class="room-item_img" src="./images/Living-Room_301x637.jpg"></img>
+            <a href={{route('editor')}}>
+            <img class="room-item_img" src="./Living-Room_301x637.jpg"></img>
+            <h2>Living1 Room </h2>
+            </a>
+        </div><div class="room-item">
+            <div class="shadow"></div>
+            <img class="room-item_img" src="./Living-Room_301x637.jpg"></img>
             <h2>Living Room </h2>
         </div><div class="room-item">
             <div class="shadow"></div>
-            <img class="room-item_img" src="./images/Living-Room_301x637.jpg"></img>
+            <img class="room-item_img" src="./Living-Room_301x637.jpg"></img>
             <h2>Living Room </h2>
         </div><div class="room-item">
             <div class="shadow"></div>
-            <img class="room-item_img" src="./images/Living-Room_301x637.jpg"></img>
-            <h2>Living Room </h2>
-        </div><div class="room-item">
-            <div class="shadow"></div>
-            <img class="room-item_img" src="./images/Living-Room_301x637.jpg"></img>
+            <img class="room-item_img" src="./Living-Room_301x637.jpg"></img>
             <h2>Living Room </h2>
         </div>
         

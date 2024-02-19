@@ -25,8 +25,11 @@ use \UniSharp\LaravelFilemanager\Lfm;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 Route::group(['prefix' => '/image'], function () {
-    Route::get('/', [ImageHandlingController::class, 'index'])->name('virtual-room');
+    Route::get('/rooms', [ImageHandlingController::class, 'index'])->name('rooms');
+    Route::get('/editor', [ImageHandlingController::class, 'editor'])->name('editor');
 });
 
 // CACHE CLEAR ROUTE

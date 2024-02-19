@@ -11,7 +11,11 @@ class ImageHandlingController extends Controller
 {
     public function index()
     {
-        return view('frontend.pages.virtual-room');
+        return view('frontend.editor.rooms');
+    }
+    public function editor()
+    {
+        return view('frontend.editor.editor');
     }
     public function getImage($rm, $sp1, $p1, $sp2, $p2)
     {
