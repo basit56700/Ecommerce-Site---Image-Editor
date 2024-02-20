@@ -3,19 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Intervention\Image\ImageManager;
 use App\Models\ImageModel;
 use App\Models\FurnitureModel;
-
+use App\Models\RoomsModel;
 class ImageHandlingController extends Controller
 {
     public function index()
     {
-        return view('frontend.editor.rooms');
+        // Retrieve all rooms from the database
+        $rooms = RoomsModel::all();
+   
+
+        // Pass the retrieved rooms data to the view
+        return view('frontend.editor.rooms', ['rooms' => $rooms]);
     }
-    public function editor()
+    public function editor($id)
     {
-        return view('frontend.editor.editor');
+        try {
+            // Find the room by its ID
+            $room = RoomsModel::findOrFail($id);
+
+            // Send the room data to the view
+            return view('frontend.editor.editor', ['room' => $room]);
+        } catch (ModelNotFoundException $e) {
+            // Handle the case where the room is not found
+            return redirect()->back()->with('error', 'Room not found.');
+        }
     }
     public function getImage($rm, $sp1, $p1, $sp2, $p2)
     {

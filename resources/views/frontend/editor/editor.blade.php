@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    <div id="roomId" data-room-id="{{ $room->id }}"></div>
     <div class="root">
         <div class="header" style="background: rgb(255, 255, 255);">
             {{-- <div class="logo"><img src="" alt="Best Board"></div> --}}
@@ -53,8 +54,11 @@
         <figure class="cd-image-container">
 
             <img class="room-img" src="https://vr.nuboard.com.pk/app/assets/rooms/Living-Room.png" alt="Original Image">
-            <div text="LED TV Wall" class="hotspot" style="display: block; bottom: 60%; left: 31%;"></div>
-            <div text="Cupboards" class="hotspot" style="display: block; top: 35%; left: 42%;"></div>
+            <div text="LED TV Wall" class="hotspot" data-hotspotId="1" data-hotspotId="1"
+                style="display: block; bottom: 60%; left: 31%;">
+            </div>
+            <div text="Cupboards" class="hotspot" data-hotspotId="2" data-hotspotId="2"
+                style="display: block; top: 35%; left: 42%;"></div>
             <span class="cd-image-label" data-type="original">Original</span>
 
             <div class="cd-resize-img"> <!-- the resizable image on top -->
@@ -64,260 +68,52 @@
 
                 <span class="cd-image-label" data-type="modified">Modified</span>
             </div>
-            <div text="LED TV Wall" class="hotspot" style="display: block; bottom: 60%; left: 31%;"></div>
-            <div text="Cupboards" class="hotspot" style="display: block; top: 35%; left: 42%;"></div>
+            <div text="LED TV Wall" class="hotspot" data-hotspotId="1" style="display: block; bottom: 60%; left: 31%;">
+            </div>
+            <div text="Cupboards" class="hotspot" data-hotspotId="2" style="display: block; top: 35%; left: 42%;"></div>
             <span class="cd-handle"></span>
         </figure>
 
 
     </div>
     <div class="general-container container ">
-        <input class="radio" type="radio" name="card" id="card-1" checked />
-        <label class="content" for="card-1">
-            <div class="modal-container" style="overflow-x: auto;">
-                <div class="row">
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                    <div class="box col-3">
-                        <img src="https://source.unsplash.com/1000x800">
-                        <span>CSS</span>
-                    </div>
-                </div> <!-- Closing row -->
-                <span class="icon">
-                    <i class="fas fa-sun"></i>
-                </span>
-                <h3 class="card-title">
-                    Serra da Freita, Vale de Cambra, Portugal
-                    <span class="subtitle">@hed</span>
-                </h3>
-            </div>
-        </label>
-        <input class="radio" type="radio" name="card" id="card-2" />
-        <label class="content" for="card-2">
-          <div class="modal-container" style="overflow-x: auto;">
-            <div class="row">
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
+
+        <?php
+        $categories = DB::table('categories')->get();
+        ?>
+        @foreach ($categories as $category)
+            <input class="radio" type="radio" name="card" id="card-{{ $loop->iteration }}"
+                {{ $loop->first ? 'checked' : '' }} /> <!-- Set checked attribute on first iteration -->
+            <label class="content" for="card-{{ $loop->iteration }}">
+                <div class="modal-container">
+                    <div class="row">
+                        <div class="box col-4">
+                            <div class="image-div" data-image-id="">
+                                <img src="{{ asset('/images/img-modified.jpg') }}">
+                                <span>{{ $category->summary }}</span>
+                                <!-- Use category summary as card title -->
+                            </div>
+                        </div>
+                    </div> <!-- Closing row -->
+                    <span class="icon">
+                        <i class="fas fa-sun"></i>
+                    </span>
+                    <h3 class="card-title">
+                        Serra da Freita, Vale de Cambra, Portugal
+                        <span class="subtitle">@hed</span>
+                    </h3>
                 </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-            </div> <!-- Closing row -->
-            <span class="icon">
-                <i class="fas fa-sun"></i>
-            </span>
-            <h3 class="card-title">
-                Serra da Freita, Vale de Cambra, Portugal
-                <span class="subtitle">@hed</span>
-            </h3>
-        </div>
-        </label>
+            </label>
+        @endforeach
+
+
+        {{-- 
         <input class="radio" type="radio" name="card" id="card-3" />
         <label class="content" for="card-3">
-          <div class="modal-container" style="overflow-x: auto;">
+          <div class="modal-container" >
             <div class="row">
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
+                <div class="box col-4">
+                    <img src="{{ asset("/images/img-modified.jpg")}}">
                     <span>CSS</span>
                 </div>
             </div> <!-- Closing row -->
@@ -330,178 +126,7 @@
             </h3>
         </div>
         </label>
-        <input class="radio" type="radio" name="card" id="card-4" />
-        <label class="content" for="card-4">
-          <div class="modal-container" style="overflow-x: auto;">
-            <div class="row">
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-            </div> <!-- Closing row -->
-            <span class="icon">
-                <i class="fas fa-sun"></i>
-            </span>
-            <h3 class="card-title">
-                Serra da Freita, Vale de Cambra, Portugal
-                <span class="subtitle">@hed</span>
-            </h3>
-        </div>
-        </label>
-        <input class="radio" type="radio" name="card" id="card-5" />
-        <label class="content" for="card-5">
-          <div class="modal-container" style="overflow-x: auto;">
-            <div class="row">
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-                <div class="box col-3">
-                    <img src="https://source.unsplash.com/1000x800">
-                    <span>CSS</span>
-                </div>
-            </div> <!-- Closing row -->
-            <span class="icon">
-                <i class="fas fa-sun"></i>
-            </span>
-            <h3 class="card-title">
-                Serra da Freita, Vale de Cambra, Portugal
-                <span class="subtitle">@hed</span>
-            </h3>
-        </div>
-        </label>
+         --}}
     </div>
 
     <!-- cd-image-container -->
@@ -510,10 +135,16 @@
     <script src="{{ asset('editor/js/main.js') }}"></script> <!-- Resource jQuery -->
 </body>
 
-
+<script></script>
 
 
 <style>
+    ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+        /* make scrollbar transparent */
+    }
+
     :root {
         --base-font-size: 16px;
         --dark-blue: #1F4782;
@@ -667,11 +298,16 @@
         padding: 4% 2%;
         box-sizing: border-box;
         height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
     .box {
         box-shadow: 0 20px 30px rgba(0, 0, 0, .1);
-        border-radius: 50%;
+        border-radius: 10%;
+        padding: 5px;
+
+        background-color: rgba(255, 255, 255, 0.2);
     }
 
     .box>img {

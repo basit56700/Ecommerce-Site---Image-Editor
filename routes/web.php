@@ -29,7 +29,8 @@ use \UniSharp\LaravelFilemanager\Lfm;
 
 Route::group(['prefix' => '/image'], function () {
     Route::get('/rooms', [ImageHandlingController::class, 'index'])->name('rooms');
-    Route::get('/editor', [ImageHandlingController::class, 'editor'])->name('editor');
+    Route::get('/editor/{id}', [ImageHandlingController::class, 'editor'])->name('editor');
+    Route::get('/getImage/{rm}/{sp1}/{p1}/{sp2}/{p2}', [ImageHandlingController::class, 'getImage'])->name('getImage');
 });
 
 // CACHE CLEAR ROUTE
@@ -166,8 +167,5 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 });
 
 
-Route::prefix('template')->group(function () {
-    Route::get('/editor/{productId}/{userId}', 'TemplateApiController@editor')->name('template.editor');
-});
 
 
