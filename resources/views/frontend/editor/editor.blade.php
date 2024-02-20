@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="{{ asset('editor/css/reset.css') }}"> <!-- CSS reset -->
@@ -70,9 +72,7 @@
     </div>
     <div class="general-container">
         <input class="radio" type="radio" name="card" id="card-1" checked />
-        <label class="content"
-            style="background-image: url('https://cdn.fstoppers.com/styles/article_med/s3/media/2019/12/04/nando-jpeg-quality-screenshot_dsc-hv400v.jpg');"
-            for="card-1">
+        <label class="content" for="card-1">
             <span class="icon">
                 <i class="fas fa-sun"></i>
             </span>
@@ -82,9 +82,7 @@
             </h3>
         </label>
         <input class="radio" type="radio" name="card" id="card-2" />
-        <label class="content"
-            style="background-image: url('https://cdn.fstoppers.com/styles/full/s3/media/2019/12/04/nando-jpeg-quality-006-too-much.jpg');"
-            for="card-2">
+        <label class="content" for="card-2">
             <span class="icon">
                 <i class="fas fa-cloud-rain"></i>
             </span>
@@ -94,105 +92,37 @@
             </h3>
         </label>
         <input class="radio" type="radio" name="card" id="card-3" />
-        <label class="content"
-            style="background-image: url('https://cdn.fstoppers.com/styles/article_med/s3/media/2019/12/04/nando-jpeg-quality-screenshot_dsc-hv400v.jpg');"
-            for="card-3">
+        <label class="content" for="card-3">
             <span class="icon">
-                <i class="fas fa-cloud-rain"></i>
+                <i class="fas fa-cloud-moon"></i>
             </span>
             <h3 class="card-title">
-                París, Paris, France
-                <span class="subtitle">@lolaguti</span>
+                La Joue du Loup, Le Dévoluy, France
+                <span class="subtitle">@quentindrphotography</span>
             </h3>
         </label>
         <input class="radio" type="radio" name="card" id="card-4" />
-        <label class="content"
-            style="background-image: url('https://cdn.fstoppers.com/styles/full/s3/media/2019/12/04/nando-jpeg-quality-006-too-much.jpg');"
-            for="card-4">
+        <label class="content" for="card-4">
             <span class="icon">
-                <i class="fas fa-cloud-rain"></i>
+                <i class="fas fa-snowflake"></i>
             </span>
             <h3 class="card-title">
-                París, Paris, France
-                <span class="subtitle">@lolaguti</span>
+                Jasper National Park, Jasper, Canada
+                <span class="subtitle">@punttim</span>
             </h3>
         </label>
         <input class="radio" type="radio" name="card" id="card-5" />
-        <label class="content"
-            style="background-image: url('https://cdn.fstoppers.com/styles/article_med/s3/media/2019/12/04/nando-jpeg-quality-screenshot_dsc-hv400v.jpg');"
-            for="card-5">
+        <label class="content" for="card-5">
             <span class="icon">
-                <i class="fas fa-cloud-rain"></i>
+                <i class="fas fa-poo-storm"></i>
             </span>
             <h3 class="card-title">
-                París, Paris, France
-                <span class="subtitle">@lolaguti</span>
+                Sioux Falls, United States
+                <span class="subtitle">@eugenetriguba</span>
             </h3>
         </label>
-        <input class="radio" type="radio" name="card" id="card-6" />
-        <label class="content"
-            style="background-image: url('https://cdn.fstoppers.com/styles/full/s3/media/2019/12/04/nando-jpeg-quality-006-too-much.jpg');"
-            for="card-6">
-            <span class="icon">
-                <i class="fas fa-cloud-rain"></i>
-            </span>
-            <h3 class="card-title">
-                París, Paris, France
-                <span class="subtitle">@lolaguti</span>
-            </h3>
-        </label>
-        <input class="radio" type="radio" name="card" id="card-7" />
-        <label class="content"
-            style="background-image: url('https://cdn.fstoppers.com/styles/article_med/s3/media/2019/12/04/nando-jpeg-quality-screenshot_dsc-hv400v.jpg');"
-            for="card-7">
-            <span class="icon">
-                <i class="fas fa-cloud-rain"></i>
-            </span>
-            <h3 class="card-title">
-                París, Paris, France
-                <span class="subtitle">@lolaguti</span>
-            </h3>
-        </label>
-        <input class="radio" type="radio" name="card" id="card-8" />
-        <label class="content"
-            style="background-image: url('https://cdn.fstoppers.com/styles/full/s3/media/2019/12/04/nando-jpeg-quality-006-too-much.jpg');"
-            for="card-8">
-            <span class="icon">
-                <i class="fas fa-cloud-rain"></i>
-            </span>
-            <h3 class="card-title">
-                París, Paris, France
-                <span class="subtitle">@lolaguti</span>
-            </h3>
-        </label>
-        <input class="radio" type="radio" name="card" id="card-9" />
-        <label class="content" style="background-image: url('https://cdn.fstoppers.com/styles/full/s3/media/2019/12/04/nando-jpeg-quality-006-too-much.jpg');"
-            for="card-9">
-            <span class="icon">
-                <i class="fas fa-cloud-rain"></i>
-            </span>
-            <h3 class="card-title">
-                París, Paris, France
-                <span class="subtitle">@lolaguti</span>
-            </h3>
-        </label>
-        <input class="radio" type="radio" name="card" id="card-10" />
-        <label class="content"
-            style="background-image: url('https://cdn.fstoppers.com/styles/full/s3/media/2019/12/04/nando-jpeg-quality-006-too-much.jpg');"
-            for="card-10">
-            <span class="icon">
-                <i class="fas fa-cloud-rain"></i>
-            </span>
-            <h3 class="card-title">
-                París, Paris, France
-                <span class="subtitle">@lolaguti</span>
-            </h3>
-        </label>
-
-
-        
-
     </div>
+
     <!-- cd-image-container -->
     <script src="{{ asset('editor/js/jquery-2.1.1.js') }}"></script>
     <script src="{{ asset('editor/js/jquery.mobile.custom.min.js') }}"></script> <!-- Resource jQuery -->
@@ -203,35 +133,40 @@
 
 
 <style>
-:root {
-  --dark-blue: #1F4782;
-  --dark-gray: #303335;
-  --golden: #AB834C;
-  --golden-tainoi: #E9BE71;
-  --gray: #818C96;
-  --white: #FFF;
-}
+    :root {
+        --base-font-size: 16px;
+        --dark-blue: #1F4782;
+        --dark-gray: #303335;
+        --golden: #AB834C;
+        --golden-tainoi: #E9BE71;
+        --gray: #818C96;
+        --white: #FFF;
+    }
 
-*,
-::after,
-::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    *,
+    ::after,
+    ::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-body {
-  background: linear-gradient(90deg, #CAF3F2 0%, #6FE3E1 100%);
-  display: flex;
-  flex-direction: column;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  justify-content: center;
-  min-height: 100vh;
-}
+    body {
+        background: linear-gradient(90deg, #CAF3F2 0%, #6FE3E1 100%);
+        display: flex;
+        flex-direction: column;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1rem;
+        justify-content: center;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+
+    }
+
     .general-container {
-        
-        height: 53rem   ;
+
+        height: 70%;
         margin: 0 auto;
         max-width: 100%;
         width: 95%;
@@ -239,9 +174,27 @@ body {
         top: 5%;
         left: 5%;
         display: none;
-        transition: transform 0.8s ease;
+        transform: translateX(-100%);
+        /* Initially position the element outside the viewport */
+        animation: slideIn 0.6s forwards;
+        /* Apply animation */
     }
 
+    @keyframes slideIn {
+        0% {
+            transform: translateX(-100%);
+            /* Start position outside the viewport */
+            opacity: 0;
+            /* Hide the element */
+        }
+
+        100% {
+            transform: translateX(0);
+            /* End position at 0% left offset */
+            opacity: 1;
+            /* Show the element */
+        }
+    }
 
     .radio {
         display: none;
@@ -249,13 +202,14 @@ body {
 
     .content {
         background: var(--white) url('https://images.unsplash.com/photo-1524572217604-17e96c89e56f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80') 100% / cover no-repeat;
-        border-radius: 3rem;
+        border-radius: 6rem;
         cursor: pointer;
         flex: 1;
         margin-right: 0.8rem;
         overflow: hidden;
         position: relative;
-        transition: all 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+        transition: all 0.6s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+
     }
 
     .content:hover {
@@ -270,11 +224,11 @@ body {
         color: var(--golden-tainoi);
         display: flex;
         font-size: 1.5rem;
-        height: 2.5rem;
+        height: 5rem;
         justify-content: center;
-        left: 1.1rem;
+        left: 18px;
         position: absolute;
-        width: 2.5rem;
+        width: 5rem;
     }
 
 
@@ -284,8 +238,8 @@ body {
         color: var(--white);
         display: flex;
         flex-direction: column;
-        font-size: 1.2rem;
-        left: 4.5rem;
+        font-size: 1.4rem;
+        left: 9%;
         line-height: 1.1;
         opacity: 0;
         position: absolute;
@@ -303,24 +257,25 @@ body {
 
     /* Effect */
     .radio:checked+.content {
-        border-radius: 2rem;
-        min-width: 50%;;
+        border-radius: 4rem;
         box-shadow: 0.3rem 0.3rem 0.4rem rgba(0, 0, 0, 0.3);
         flex: 10;
-        
+
     }
 
-    .radio:checked + .content > .card-title {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 1s ease, transform 1s ease; /* Apply transition */
-}
+    .radio:checked+.content>.card-title {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 1s ease, transform 1s ease;
+        /* Apply transition */
+    }
 
-   .content > .card-title {
-      opacity: 0;
-      transform: translateX(-100%);
-      transition: opacity 1s ease, transform 1s ease; /* Apply transition */
-   }
+    .content>.card-title {
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: opacity 1s ease, transform 1s ease;
+        /* Apply transition */
+    }
 </style>
 
 </html>
