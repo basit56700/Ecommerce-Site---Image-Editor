@@ -8,7 +8,8 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('editor/css/reset.css') }}"> <!-- CSS reset -->
     <link rel="stylesheet" href="{{ asset('editor/css/style.css') }}"> <!-- Resource style -->
     <script src="{{ asset('editor/js/modernizr.js') }}"></script> <!-- Modernizr -->
@@ -48,7 +49,7 @@
 
     </div>
 
-    <div class="container">
+    <div class="container1">
         <figure class="cd-image-container">
 
             <img class="room-img" src="https://vr.nuboard.com.pk/app/assets/rooms/Living-Room.png" alt="Original Image">
@@ -70,9 +71,170 @@
 
 
     </div>
-    <div class="general-container">
+    <div class="general-container container ">
         <input class="radio" type="radio" name="card" id="card-1" checked />
         <label class="content" for="card-1">
+            <div class="modal-container" style="overflow-x: auto;">
+                <div class="row">
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                    <div class="box col-3">
+                        <img src="https://source.unsplash.com/1000x800">
+                        <span>CSS</span>
+                    </div>
+                </div> <!-- Closing row -->
+                <span class="icon">
+                    <i class="fas fa-sun"></i>
+                </span>
+                <h3 class="card-title">
+                    Serra da Freita, Vale de Cambra, Portugal
+                    <span class="subtitle">@hed</span>
+                </h3>
+            </div>
+        </label>
+        <input class="radio" type="radio" name="card" id="card-2" />
+        <label class="content" for="card-2">
+          <div class="modal-container" style="overflow-x: auto;">
+            <div class="row">
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+            </div> <!-- Closing row -->
             <span class="icon">
                 <i class="fas fa-sun"></i>
             </span>
@@ -80,46 +242,265 @@
                 Serra da Freita, Vale de Cambra, Portugal
                 <span class="subtitle">@hed</span>
             </h3>
-        </label>
-        <input class="radio" type="radio" name="card" id="card-2" />
-        <label class="content" for="card-2">
-            <span class="icon">
-                <i class="fas fa-cloud-rain"></i>
-            </span>
-            <h3 class="card-title">
-                París, Paris, France
-                <span class="subtitle">@lolaguti</span>
-            </h3>
+        </div>
         </label>
         <input class="radio" type="radio" name="card" id="card-3" />
         <label class="content" for="card-3">
+          <div class="modal-container" style="overflow-x: auto;">
+            <div class="row">
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+            </div> <!-- Closing row -->
             <span class="icon">
-                <i class="fas fa-cloud-moon"></i>
+                <i class="fas fa-sun"></i>
             </span>
             <h3 class="card-title">
-                La Joue du Loup, Le Dévoluy, France
-                <span class="subtitle">@quentindrphotography</span>
+                Serra da Freita, Vale de Cambra, Portugal
+                <span class="subtitle">@hed</span>
             </h3>
+        </div>
         </label>
         <input class="radio" type="radio" name="card" id="card-4" />
         <label class="content" for="card-4">
+          <div class="modal-container" style="overflow-x: auto;">
+            <div class="row">
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+            </div> <!-- Closing row -->
             <span class="icon">
-                <i class="fas fa-snowflake"></i>
+                <i class="fas fa-sun"></i>
             </span>
             <h3 class="card-title">
-                Jasper National Park, Jasper, Canada
-                <span class="subtitle">@punttim</span>
+                Serra da Freita, Vale de Cambra, Portugal
+                <span class="subtitle">@hed</span>
             </h3>
+        </div>
         </label>
         <input class="radio" type="radio" name="card" id="card-5" />
         <label class="content" for="card-5">
+          <div class="modal-container" style="overflow-x: auto;">
+            <div class="row">
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+                <div class="box col-3">
+                    <img src="https://source.unsplash.com/1000x800">
+                    <span>CSS</span>
+                </div>
+            </div> <!-- Closing row -->
             <span class="icon">
-                <i class="fas fa-poo-storm"></i>
+                <i class="fas fa-sun"></i>
             </span>
             <h3 class="card-title">
-                Sioux Falls, United States
-                <span class="subtitle">@eugenetriguba</span>
+                Serra da Freita, Vale de Cambra, Portugal
+                <span class="subtitle">@hed</span>
             </h3>
+        </div>
         </label>
     </div>
 
@@ -257,7 +638,7 @@
 
     /* Effect */
     .radio:checked+.content {
-        border-radius: 4rem;
+        border-radius: 1rem;
         box-shadow: 0.3rem 0.3rem 0.4rem rgba(0, 0, 0, 0.3);
         flex: 10;
 
@@ -275,6 +656,61 @@
         transform: translateX(-100%);
         transition: opacity 1s ease, transform 1s ease;
         /* Apply transition */
+    }
+
+
+
+
+    .modal-container {
+        display: flex;
+        width: 100%;
+        padding: 4% 2%;
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    .box {
+        box-shadow: 0 20px 30px rgba(0, 0, 0, .1);
+        border-radius: 50%;
+    }
+
+    .box>img {
+        border-radius: 8%;
+    }
+
+
+    /*   .box {
+        flex: 1;
+        overflow: hidden;
+        transition: .5s;
+        margin: 0 2%;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, .1);
+        line-height: 0;
+    }
+    */
+
+    .box>img {
+        width: 200%;
+        height: calc(100% - 3.8vh);
+        object-fit: cover;
+        transition: .5s;
+    }
+
+    .box>span {
+        font-size: 2vh;
+        display: block;
+        text-align: center;
+        height: 4vh;
+        line-height: 2.6;
+    }
+
+    .box:hover {
+        flex: 1 1 5%;
+    }
+
+    .box:hover>img {
+        width: 100%;
+        height: 100%;
     }
 </style>
 
