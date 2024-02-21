@@ -77,7 +77,7 @@
 
     </div>
     <div class="general-container container ">
-
+        
         <?php
         $categories = DB::table('categories')->get();
         ?>
@@ -275,7 +275,7 @@
 
     }
 
-    .radio:checked+.content>.card-title {
+    .radio:checked+.content>.modal-container>.card-title {
         opacity: 1;
         transform: translateX(0);
         transition: opacity 1s ease, transform 1s ease;
