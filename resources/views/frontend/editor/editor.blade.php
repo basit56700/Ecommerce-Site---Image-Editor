@@ -15,7 +15,13 @@
     <script src="{{ asset('editor/js/modernizr.js') }}"></script> <!-- Modernizr -->
 
 </head>
-
+<script>
+        var hotspot1='{{ $hotspot1 }}';
+        var hotspot2='{{ $hotspot2 }}';
+        var prodId1='{{ $prodId1 }}';
+        var prodId2='{{ $prodId2 }}';
+        var roomId='{{ $roomId }}';
+</script>
 <body>
     <div id="roomId" data-room-id="{{ $room->id }}"></div>
     <div class="root">
@@ -24,9 +30,13 @@
             <div class="header__options">
                 <div class="header__links">
                     <div id="home-button" class="header__links-item">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAmCAYAAACyAQkgAAADI0lEQVRYhe2Ye2hOcRjHP5vLChlSjLmEcstlsjKsRSSRS/hDiAxJlltRkuaPlaIsUW6Z2B9Ek9FSRiwjl7UNIcUfpGmEiK3ZRr/6njpe73t23vf97T2lfWud9/ldPzvnOc/z/E5Sfn4+lnUY6AZsAFptLd3ZIuMo4BwwWfZ0YBXwyMbiyTYWAdYDLwTZCHwDRgIPgR02NogX1DyRYuCE7OcCHA48UNtB4CrQPSjQScAzYIXs48BY4C3wCZgCHFDffN3xnESDbgGqdPd+AsuBjWHG7QTmAfXAIOA2sDcRoL2Ay0Ch7Pt6ic57zCnTmHLZ+4CbQHp7gc4CXgKLZB8CpgLvfMz9AswGnFg4U66wwDbobuAG0E+bLgS2+93EJXM3Z8iPewBXgP02QPsD14EC2WXyy9IYIB0ZPx3tcpddwD1gRKygi/Wo58jeoxfjYxyQjpwXcJvsLLnCmmhBjf+VAKlAnfyrIMLYeFSoMPZKMbkIOOkHdChQAWyVfUmPujzMXFsyiWEMcFrrrQNqgHGRQFfqUWfL3gwsA763I6SjFiBXtUEzMAF4Amxyg5pbfkoFRQrwBsgAjiYAMFTFym61ajcMF4GeyXLiXHWcVXCuCQDSkfHXicAR2UsNY7KyTROwFlgN/AoQ0q08YIkiRKoBHax0VqRBaUClgnOiZWqIu66YWqIaId2ANoTExmylxrwAQE1hMw2Y62r7DHwNF0ebdK1LEJxb9frdENoR7ijSGnKNRuNVpyYpvFRFOT/i3rbOTMOAY8pgblUqHscdRWyADgGe6uSJqv4WBW3jb9UKN7VtrOMpG4e7UkEa/8pR6jNgmcBrjSmTOwQGmiW/RIV1havvsSKIicsDXKk5JsULmqFrtR5/qEzkuKW2zCBBnfleNarTl2Jjo1jVonldPeY7gM1BgiZMHaC21QFqW/8FaKOP+e+j2OuDjzE/InWEK0oc+DQdXYmQp1v1eYY2/mGnz3xn6uIx9rersu/kB9RpGxjpY0AY9fXo66OrOf+YPz/6J4GEA70DXAB6+6x4THY649FvvjgbN/JTUpq7ar4jXPurFfgDtmiXthm3wGMAAAAASUVORK5CYII="
-                            alt="Home Icon" style="width: 24px;">
+                        <img src="">
                         <span> Home
+                        </span>
+                    </div>
+                    <div id="test-button" class="header__links-item">
+                        <img src="">
+                        <span> test
                         </span>
                     </div>
                     <div class="ant-divider css-1km3mtt ant-divider-vertical" role="separator"
@@ -52,10 +62,12 @@
 
     <div class="container1">
         <figure class="cd-image-container">
-
-            <img class="room-img" src="https://vr.nuboard.com.pk/app/assets/rooms/Living-Room.png" alt="Original Image">
+            {{-- original --}}
+            <img class="room-img"  src="{{ asset("/images/t2.jpeg")}}" alt="Original Image">
             <div text="LED TV Wall" class="hotspot" data-hotspotId="1" data-hotspotId="1"
                 style="display: block; bottom: 60%; left: 31%;">
+
+                
             </div>
             <div text="Cupboards" class="hotspot" data-hotspotId="2" data-hotspotId="2"
                 style="display: block; top: 35%; left: 42%;"></div>
@@ -63,7 +75,8 @@
 
             <div class="cd-resize-img"> <!-- the resizable image on top -->
 
-                <img class="room-img" src="https://vr.nuboard.com.pk/app/api/image?rm=1&sp1=1&p1=3&sp2=2&p2=2"
+                <img class="room-img1" src="{{ asset("/images/t1.jpeg")}}"
+                
                     alt="Modified Image">
 
                 <span class="cd-image-label" data-type="modified">Modified</span>
@@ -77,29 +90,37 @@
 
     </div>
     <div class="general-container container ">
-        
+
         <?php
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('categories')->where("parent_id",13)->get();
         ?>
         @foreach ($categories as $category)
             <input class="radio" type="radio" name="card" id="card-{{ $loop->iteration }}"
                 {{ $loop->first ? 'checked' : '' }} /> <!-- Set checked attribute on first iteration -->
-            <label class="content" for="card-{{ $loop->iteration }}">
+
+
+            <?php
+            $products = DB::table('products')->where('cat_id', $category->id)->get();
+            ?>
+
+            <label class="content" style="background: var(--white) url('{{asset($category->photo)}}') 100% / cover no-repeat;" for="card-{{ $loop->iteration }}">
                 <div class="modal-container">
                     <div class="row">
-                        <div class="box col-4">
-                            <div class="image-div" data-image-id="">
-                                <img src="{{ asset('/images/img-modified.jpg') }}">
-                                <span>{{ $category->summary }}</span>
-                                <!-- Use category summary as card title -->
+                        @foreach ($products as $product)
+                            <div class="box col-4">
+                                <div class="image-div" data-image-id="{{$product->id}}">
+                                    <img src="{{ asset($product->photo) }}">
+                                    <span>{{ $product->summary }}</span>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
+
                     </div> <!-- Closing row -->
                     <span class="icon">
                         <i class="fas fa-sun"></i>
                     </span>
                     <h3 class="card-title">
-                        Serra da Freita, Vale de Cambra, Portugal
+                        {{$category->title}}
                         <span class="subtitle">@hed</span>
                     </h3>
                 </div>
@@ -164,7 +185,7 @@
     }
 
     body {
-        background: linear-gradient(90deg, #CAF3F2 0%, #6FE3E1 100%);
+       
         display: flex;
         flex-direction: column;
         font-family: 'Roboto', sans-serif;
@@ -181,10 +202,10 @@
         height: 70%;
         margin: 0 auto;
         max-width: 100%;
-        width: 95%;
+        width: 100%;
         position: absolute;
-        top: 5%;
-        left: 5%;
+        top: 7%;
+
         display: none;
         transform: translateX(-100%);
         /* Initially position the element outside the viewport */
@@ -213,8 +234,8 @@
     }
 
     .content {
-        background: var(--white) url('https://images.unsplash.com/photo-1524572217604-17e96c89e56f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80') 100% / cover no-repeat;
-        border-radius: 6rem;
+       
+        border-radius: .2rem;
         cursor: pointer;
         flex: 1;
         margin-right: 0.8rem;
@@ -231,7 +252,7 @@
     .icon {
         align-items: center;
         background-color: white;
-        border-radius: 50%;
+        border-radius: 0%;
         bottom: 1rem;
         color: var(--golden-tainoi);
         display: flex;
@@ -304,9 +325,9 @@
 
     .box {
         box-shadow: 0 20px 30px rgba(0, 0, 0, .1);
-        border-radius: 10%;
+        border-radius: 2%;
         padding: 5px;
-
+        height: 40%;
         background-color: rgba(255, 255, 255, 0.2);
     }
 

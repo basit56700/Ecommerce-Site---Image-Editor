@@ -9,16 +9,13 @@
             @foreach ($rooms as $room)
                 <div class="room-item">
                     <div class="shadow"></div>
-                    <a href="{{ route('editor', ['id' => $room->id]) }}">
+                    <a class="nav-link" href="{{ route('editor', ['id' => $room->id]) }}">
                         <img class="room-item_img" src="{{ asset("$room->imageURL")}}" alt="{{ $room->name }}"></img>
                         <h2>{{ $room->name }}</h2>
                     </a>
                 </div>
             @endforeach
         </div>
-
-
-
     </div>
 @endsection
 
@@ -52,6 +49,7 @@
 
         .room-item .room-item_img {
             border-radius: 8px;
+            max-width: 95%;
             -webkit-transform: scale(1);
             transform: scale(1);
             transition: -webkit-transform .3s ease-in-out;

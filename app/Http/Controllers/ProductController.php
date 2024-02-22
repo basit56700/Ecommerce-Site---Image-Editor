@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
-use App\Models\TemplateApi;
+
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -91,26 +91,6 @@ class ProductController extends Controller
         // return $size;
         // return $data;
         $status=Product::create($data);
-        $productId= $status->id;
-        
-        $template = $request->input('template');
-        $template_height = $request->input('template_height');
-        $template_width = $request->input('template_width');
-      
-        if($status){
-            $status1= TemplateApi::create(['product_id' => $productId,
-                                           'front'=>$template,
-                                           'template_height'=>$template_height,
-                                           'template_width'=>$template_width,
-                                                                         
-        ]);
-        
-
-            request()->session()->flash('success','Product Successfully added');
-        }
-        else{
-            request()->session()->flash('error','Please try again!!');
-        }
         return redirect()->route('product.index');
 
     }
@@ -138,15 +118,12 @@ class ProductController extends Controller
     $product = Product::findOrFail($id);
     $category = Category::where('is_parent', 1)->get();
     
-    // Assuming TemplateApi returns a single object
-    $template = TemplateApi::where('product_id' , $product->id)->first(); // Use first() to retrieve a single result
-   
+    
     $items = Product::where('id', $id)->get();
 
     return view('backend.product.edit')
         ->with('product', $product)
         ->with('brands', $brand)
-        ->with('template', $template)
         ->with('categories', $category)
         ->with('items', $items);
 }
@@ -194,20 +171,8 @@ class ProductController extends Controller
         }
         // return $data;
         $status=$product->fill($data)->save();
-        if($status){
-            $template=TemplateApi::where(['product_id'=>$product->id,
-                                          ])->first();
-                                        
-            $template->template_height= $request->input('template_height');
-            $template->template_width= $request->input('template_width');
-            $template->front=$request->input('template');
-            $template->save();
-
-            request()->session()->flash('success','Product Successfully updated');
-        }
-        else{
-            request()->session()->flash('error','Please try again!!');
-        }
+        
+           
         return redirect()->route('product.index');
     }
 
@@ -220,11 +185,6 @@ class ProductController extends Controller
     public function destroy($product_id)
     {   
        
-  
-  
-        $template = TemplateApi::where('product_id', $product_id)->first();
-        $status1=$template->delete();
-
        
         $product=Product::findOrFail($product_id);
         $status=$product->delete();

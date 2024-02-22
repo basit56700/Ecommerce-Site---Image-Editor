@@ -24,9 +24,13 @@ class ImageHandlingController extends Controller
         try {
             // Find the room by its ID
             $room = RoomsModel::findOrFail($id);
-
+            $hotspot1=$room->id;
+            $hotspot2=$room->id;
+            $prodId1=$room->id;
+            $prodId2=$room->id;
+            $roomId=$room->id;
             // Send the room data to the view
-            return view('frontend.editor.editor', ['room' => $room]);
+            return view('frontend.editor.editor', compact('room', 'hotspot1', 'hotspot2', 'prodId1', 'prodId2', 'roomId'));
         } catch (ModelNotFoundException $e) {
             // Handle the case where the room is not found
             return redirect()->back()->with('error', 'Room not found.');
@@ -43,14 +47,15 @@ class ImageHandlingController extends Controller
         if ($imageURL) {
             return $imageURL;
         } else {
+            $room = RoomsModel::where('room_id', $rm)->first();
             $imageUrl1 = FurnitureModel::where('room_id', $rm)
-                ->where('product_id', $sp1)
-                ->where('hotspot_id', $p1)
+                ->where('product_id',$p1 )
+                ->where('hotspot_id', $sp1)
                 ->value('imageURL');
 
             $imageUrl2 = FurnitureModel::where('room_id', $rm)
-                ->where('product_id', $p2)
-                ->where('hotspot_id', $sp2)
+                ->where('product_id', $sp2)
+                ->where('hotspot_id', $p2)
                 ->value('imageURL');
 
             $manager = ImageManager::gd();
@@ -58,9 +63,9 @@ class ImageHandlingController extends Controller
             $image3 = $manager->read($imageUrl1);
             $image1 = $manager->read($imageUrl2);
 
-            $image1->scale(width: 3000)->scale(height: 3000)->crop(3700, 3000, 0, 0);
+            $image1->scale(width: $room->width)->scale(height: $room->height)->crop(3700, 3000, 0, 0);
 
-            $image3->scale(width: 3000)->scale(height: 3000);
+            $image3->scale(width: $room->width)->scale(height: $room->height);
 
             $image3->place($image1);
 
