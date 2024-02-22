@@ -108,8 +108,8 @@
     <!-- Footer Area of the Page end -->
 </footer>
 
-<style>71. Mt Footer / #mt-footer
-    -------------------------------------------------------------------*/
+<style>
+
     #mt-footer.montserrat {
       font-family: "Montserrat", sans-serif;
     }
@@ -175,7 +175,7 @@
     }
     
     #mt-footer.style4 .footer-holder {
-      background: #f6f6f6;
+      background: #1A1A1A;
       padding: 73px 0 57px;
     }
     
@@ -315,7 +315,7 @@
     }
     
     #mt-footer .dark {
-      background: #f6f6f6;
+      background: #1A1A1A;
       position: relative;
     }
     

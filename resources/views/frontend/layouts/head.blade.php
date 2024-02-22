@@ -11,7 +11,7 @@
 
 <!-- Slider Main -->
 <link rel="stylesheet" href="{{ asset('frontend/css/slider-style.css') }}">
-{{-- <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}"> --}}
+ <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}"> 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js'></script>
 
 <<style>
