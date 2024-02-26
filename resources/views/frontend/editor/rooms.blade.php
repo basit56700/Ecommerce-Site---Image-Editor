@@ -81,12 +81,13 @@
         }
 
         .heading-h1 {
-            color: grey;
-            color: var(--c-text-primary);
+            color: rgb(219,201,155) !important;
             font-family: Helvetica-Light, sans-serif;
             font-family: var(--ff-hevetica);
-            font-weight: 500;
+            font-weight: 800;
             margin: 0 0 10px;
+           /*  -webkit-text-stroke: 2px #034694; */
+            
         }
     </style>
 @endpush

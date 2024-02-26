@@ -4,12 +4,23 @@
 
 @section('main-content')
 
-    <div aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('product-grids') }}">Category</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Category Name</li>
-        </ol>
+  
+    <div class="horizontal">
+
+        <div class="verticals ten offset-by-one">
+    
+            <ol class="breadcrumb breadcrumb-fill2">
+                <li>
+            <a href="javascript:void(0);">
+              <i class="fa fa-home"></i>                  
+            </a>
+        </li>
+                <li><a href="{{route("home")}}">Home</a></li> 
+                <li><a href="{{route("product-grids")}}">Category</a></li> 
+                <li class="breadcrumb-item active" aria-current="page">Category Name</li>
+            </ol>
+        </div>
+    
     </div>
     <section class="category-grid">
         <div class="image-container">
