@@ -7,8 +7,6 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ImageHandlingController;
 
-
-use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\HomeController;
 
 
@@ -84,7 +82,7 @@ Route::get('blog-tag/{slug}', [FrontendController::class, 'blogByTag'])->name('b
 
 // NewsLetter
 Route::post('/subscribe', [FrontendController::class, 'subscribe'])->name('subscribe');
-
+Route::get('/category/{id}/child', 'CategoryController@getChild')->name('child-category');
 
 
 // Backend section start
@@ -110,30 +108,19 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
 
     // Ajax for sub category
     Route::post('/category/{id}/child', 'CategoryController@getChildByParent');
+    
     // POST category
     Route::resource('/post-category', 'PostCategoryController');
     // Post tag
     Route::resource('/post-tag', 'PostTagController');
     // Post
     Route::resource('/post', 'PostController');
-    // Message
-    Route::resource('/message', 'MessageController');
-   
-    // Order
-    Route::resource('/order', 'OrderController');
-    // Shipping
-    Route::resource('/shipping', 'ShippingController');
-    // Coupon
-    Route::resource('/coupon', 'CouponController');
+
     // Settings
     Route::get('settings', [AdminController::class, 'settings'])->name('settings');
     Route::post('setting/update', [AdminController::class, 'settingsUpdate'])->name('settings.update');
 
-    // Notification
-    Route::get('/notification/{id}', [NotificationController::class, 'show'])->name('admin.notification');
-    Route::get('/notifications', [NotificationController::class, 'index'])->name('all.notification');
-    Route::delete('/notification/{id}', [NotificationController::class, 'delete'])->name('notification.delete');
-    // Password Change
+   // Password Change
     Route::get('change-password', [AdminController::class, 'changePassword'])->name('change.password.form');
     Route::post('change-password', [AdminController::class, 'changPasswordStore'])->name('change.password');
 });

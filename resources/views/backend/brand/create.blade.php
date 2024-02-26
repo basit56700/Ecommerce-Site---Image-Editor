@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','E-SHOP || Brand Create')
+@section('title','Best Board || Brand Create')
 @section('main-content')
 
 <div class="card">
@@ -44,12 +44,6 @@
 <script>
     $('#lfm').filemanager('image');
 
-    $(document).ready(function() {
-    $('#description').summernote({
-      placeholder: "Write short description.....",
-        tabsize: 2,
-        height: 150
-    });
-    });
+ 
 </script>
 @endpush

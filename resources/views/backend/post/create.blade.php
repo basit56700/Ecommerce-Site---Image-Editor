@@ -115,29 +115,10 @@
 <script>
     $('#lfm').filemanager('image');
 
-    $(document).ready(function() {
-      $('#summary').summernote({
-        placeholder: "Write short description.....",
-          tabsize: 2,
-          height: 100
-      });
-    });
+ 
 
-    $(document).ready(function() {
-      $('#description').summernote({
-        placeholder: "Write detail description.....",
-          tabsize: 2,
-          height: 150
-      });
-    });
 
-    $(document).ready(function() {
-      $('#quote').summernote({
-        placeholder: "Write detail Quote.....",
-          tabsize: 2,
-          height: 100
-      });
-    });
+    
     // $('select').selectpicker();
 
 </script>

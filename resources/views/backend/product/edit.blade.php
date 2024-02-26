@@ -170,20 +170,7 @@
 <script>
     $('#lfm').filemanager('image');
 
-    $(document).ready(function() {
-    $('#summary').summernote({
-      placeholder: "Write short description.....",
-        tabsize: 2,
-        height: 150
-    });
-    });
-    $(document).ready(function() {
-      $('#description').summernote({
-        placeholder: "Write detail Description.....",
-          tabsize: 2,
-          height: 150
-      });
-    });
+    
 </script>
 
 <script>

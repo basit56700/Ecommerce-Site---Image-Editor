@@ -36,22 +36,28 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
+        /* dd($request->all()); */
         // return $request->all();
         $this->validate($request,[
-            'title'=>'string|required|max:50',
+            'series'=>'string|required|max:50',
+            'category'=>'string|required|max:50',
+            'sub_category'=>'string|required|max:50',
             'description'=>'string|nullable',
             'photo'=>'string|required',
             'status'=>'required|in:active,inactive',
         ]);
         $data=$request->all();
-        $slug=Str::slug($request->title);
+        $slug=Str::slug($request->sub_category);
         $count=Banner::where('slug',$slug)->count();
         if($count>0){
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
         }
         $data['slug']=$slug;
+
+     /*    dd($data); */
         // return $slug;
         $status=Banner::create($data);
+        
         if($status){
             request()->session()->flash('success','Banner successfully added');
         }
@@ -95,19 +101,15 @@ class BannerController extends Controller
     {
         $banner=Banner::findOrFail($id);
         $this->validate($request,[
-            'title'=>'string|required|max:50',
+            'series'=>'string|required|max:50',
+            'category'=>'string|required|max:50',
+            'sub_category'=>'string|required|max:50',
             'description'=>'string|nullable',
             'photo'=>'string|required',
             'status'=>'required|in:active,inactive',
         ]);
         $data=$request->all();
-        // $slug=Str::slug($request->title);
-        // $count=Banner::where('slug',$slug)->count();
-        // if($count>0){
-        //     $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
-        // }
-        // $data['slug']=$slug;
-        // return $slug;
+        
         $status=$banner->fill($data)->save();
         if($status){
             request()->session()->flash('success','Banner successfully updated');

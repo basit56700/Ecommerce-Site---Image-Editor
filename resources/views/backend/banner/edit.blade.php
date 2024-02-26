@@ -9,9 +9,23 @@
         @csrf 
         @method('PATCH')
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
-        <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{$banner->title}}" class="form-control">
-        @error('title')
+          <label for="inputTitle" class="col-form-label">Series <span class="text-danger">*</span></label>
+        <input id="inputTitle" type="text" name="series" placeholder="Enter series"  value="{{$banner->series}}" class="form-control">
+        @error('series')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
+        </div>
+        <div class="form-group">
+          <label for="inputTitle" class="col-form-label">Category <span class="text-danger">*</span></label>
+        <input id="inputTitle" type="text" name="category" placeholder="Enter category"  value="{{$banner->category}}" class="form-control">
+        @error('category')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
+        </div>
+        <div class="form-group">
+          <label for="inputTitle" class="col-form-label">Sub Category <span class="text-danger">*</span></label>
+        <input id="inputTitle" type="text" name="sub_category" placeholder="Enter Sub Category"  value="{{$banner->sub_category}}" class="form-control">
+        @error('sub_category')
         <span class="text-danger">{{$message}}</span>
         @enderror
         </div>
@@ -68,12 +82,6 @@
 <script>
     $('#lfm').filemanager('image');
 
-    $(document).ready(function() {
-    $('#description').summernote({
-      placeholder: "Write short description.....",
-        tabsize: 2,
-        height: 150
-    });
-    });
+ 
 </script>
 @endpush

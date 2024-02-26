@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','E-SHOP || Brand Page')
+@section('title','Best Board || Brand Page')
 @section('main-content')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
@@ -38,7 +38,7 @@
             @foreach($brands as $brand)   
                 <tr>
                     <td>{{$brand->id}}</td>
-                    <td>{{$brand->title}}</td>
+                
                     <td>{{$brand->slug}}</td>
                     <td>
                         @if($brand->status=='active')

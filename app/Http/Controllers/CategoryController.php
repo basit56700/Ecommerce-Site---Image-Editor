@@ -162,4 +162,17 @@ class CategoryController extends Controller
             return response()->json(['status'=>true,'msg'=>'','data'=>$child_cat]);
         }
     }
+    public function getChild($id) {
+        
+        $child_cat = Category::where('parent_id',$id)->orderBy('id','ASC')->get();
+    /*   dd($child_cat); */
+    
+        if(count($child_cat) <= 0) {
+            // If no child categories are found, return the view with null data
+            return view('frontend.pages.product-lists', compact('child_cat'))->with('status', false);
+        } else {
+            // If child categories are found, return the view with the data
+            return view('frontend.pages.product-lists', compact('child_cat'))->with('status', true);
+        }
+    }
 }
