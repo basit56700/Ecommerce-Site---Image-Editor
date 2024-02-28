@@ -1,374 +1,359 @@
-<!doctype html>
-<html lang="en" class="no-js">
+@extends('frontend.layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('editor/css/reset.css') }}"> <!-- CSS reset -->
-    <link rel="stylesheet" href="{{ asset('editor/css/style.css') }}"> <!-- Resource style -->
-    <script src="{{ asset('editor/js/modernizr.js') }}"></script> <!-- Modernizr -->
+@section('main-content')
+    <section class="section-container">
+        <div class="section-row">
+            
+        </div>
+        <div class="section-row">
+            <div class="image-container">
+                <img src="{{ asset('images/Living-Room.png') }}" alt="Product Image">
 
-</head>
-<script>
-        var hotspot1='{{ $hotspot1 }}';
-        var hotspot2='{{ $hotspot2 }}';
-        var prodId1='{{ $prodId1 }}';
-        var prodId2='{{ $prodId2 }}';
-        var roomId='{{ $roomId }}';
-</script>
-<body>
-    <div id="roomId" data-room-id="{{ $room->id }}"></div>
-    <div class="root">
-        <div class="header" style="background: rgb(255, 255, 255);">
-            {{-- <div class="logo"><img src="" alt="Best Board"></div> --}}
-            <div class="header__options">
-                <div class="header__links">
-                    <div id="home-button" class="header__links-item">
-                        <img src="">
-                        <span> Home
-                        </span>
-                    </div>
-                    <div id="test-button" class="header__links-item">
-                        <img src="">
-                        <span> test
-                        </span>
-                    </div>
-                    <div class="ant-divider css-1km3mtt ant-divider-vertical" role="separator"
-                        style="height: 2em; border-inline-start: 1px solid rgba(128, 128, 128, 0.5);"></div>
-                    <div id="rooms" class="header__links-item">
-
-                        <span>Choose Your Environment</spa>
-                    </div>
+            </div>
+            <div class="product-details">
+                <h2>Product Name</h2><br>
+                <p>Description lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at semper leo.</p>
+                <br><br>
+                <div class="image-box">
+                    <img src="{{ asset('image/img-original.jpg') }}">
+                    <h3>Selected</h3>
                 </div>
-                <div class="compare-switch">
-                    <label class="switch">
-                        <input id="toggle-input" type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
+                <br>
+                <ul>
+                    <li>5 feet Height </li>
+                    <li>5 feet Width </li>
+                   
+                </ul>
 
-                    <div class="compare-label">Comparison mode</div>
+            </div>
+
+        </div>
+        <div class="section-menu">
+            <div class="slider-nav">
+                <div class="nav-item">
+                    <p>Category</p>
+                </div>
+                <div class="nav-item">
+                    <p>Category</p>
+                </div>
+                <div class="nav-item">
+                    <p>Category</p>
+                </div>
+                <div class="nav-item">
+                    <p>Category</p>
+                </div>
+                <div class="nav-item">
+                    <p>Category</p>
+                </div>
+                <div class="nav-item">
+                    <p>Category</p>
                 </div>
 
+            </div>
+            <div class="image-boxes">
+                <div class="img-slider__container-1">
+
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                    <div class="img-items">
+                        <img src="{{ asset('images/antique.jpg') }}" alt="">
+                    </div>
+                </div>
+                
+                <!-- Add more image-box divs as needed -->
             </div>
         </div>
 
-    </div>
+    </section>
+@endsection
 
-    <div class="container1">
-        <figure class="cd-image-container">
-            {{-- original --}}
-            <img class="room-img"  src="{{ asset("/images/t2.jpeg")}}" alt="Original Image">
-            <div text="LED TV Wall" class="hotspot" data-hotspotId="1" data-hotspotId="1"
-                style="display: block; bottom: 60%; left: 31%;">
-
-                
-            </div>
-            <div text="Cupboards" class="hotspot" data-hotspotId="2" data-hotspotId="2"
-                style="display: block; top: 35%; left: 42%;"></div>
-            <span class="cd-image-label" data-type="original">Original</span>
-
-            <div class="cd-resize-img"> <!-- the resizable image on top -->
-
-                <img class="room-img1" src="{{ asset("/images/t1.jpeg")}}"
-                
-                    alt="Modified Image">
-
-                <span class="cd-image-label" data-type="modified">Modified</span>
-            </div>
-            <div text="LED TV Wall" class="hotspot" data-hotspotId="1" style="display: block; bottom: 60%; left: 31%;">
-            </div>
-            <div text="Cupboards" class="hotspot" data-hotspotId="2" style="display: block; top: 35%; left: 42%;"></div>
-            <span class="cd-handle"></span>
-        </figure>
-
-
-    </div>
-    <div class="general-container container ">
-
-        <?php
-        $categories = DB::table('categories')->where("parent_id",13)->get();
-        ?>
-        @foreach ($categories as $category)
-            <input class="radio" type="radio" name="card" id="card-{{ $loop->iteration }}"
-                {{ $loop->first ? 'checked' : '' }} /> <!-- Set checked attribute on first iteration -->
-
-
-            <?php
-            $products = DB::table('products')->where('cat_id', $category->id)->get();
-            ?>
-
-            <label class="content" style="background: var(--white) url('{{asset($category->photo)}}') 100% / cover no-repeat;" for="card-{{ $loop->iteration }}">
-                <div class="modal-container">
-                    <div class="row">
-                        @foreach ($products as $product)
-                            <div class="box col-4">
-                                <div class="image-div" data-image-id="{{$product->id}}">
-                                    <img src="{{ asset($product->photo) }}">
-                                    <span>{{ $product->summary }}</span>
-                                </div>
-                            </div>
-                        @endforeach
-
-                    </div> <!-- Closing row -->
-                    <span class="icon">
-                        <i class="fas fa-sun"></i>
-                    </span>
-                    <h3 class="card-title">
-                        {{$category->title}}
-                        <span class="subtitle">@hed</span>
-                    </h3>
-                </div>
-            </label>
-        @endforeach
-
-
-        {{-- 
-        <input class="radio" type="radio" name="card" id="card-3" />
-        <label class="content" for="card-3">
-          <div class="modal-container" >
-            <div class="row">
-                <div class="box col-4">
-                    <img src="{{ asset("/images/img-modified.jpg")}}">
-                    <span>CSS</span>
-                </div>
-            </div> <!-- Closing row -->
-            <span class="icon">
-                <i class="fas fa-sun"></i>
-            </span>
-            <h3 class="card-title">
-                Serra da Freita, Vale de Cambra, Portugal
-                <span class="subtitle">@hed</span>
-            </h3>
-        </div>
-        </label>
-         --}}
-    </div>
-
-    <!-- cd-image-container -->
-    <script src="{{ asset('editor/js/jquery-2.1.1.js') }}"></script>
-    <script src="{{ asset('editor/js/jquery.mobile.custom.min.js') }}"></script> <!-- Resource jQuery -->
-    <script src="{{ asset('editor/js/main.js') }}"></script> <!-- Resource jQuery -->
-</body>
-
-<script></script>
-
-
-<style>
-    ::-webkit-scrollbar {
-        width: 0px;
-        background: transparent;
-        /* make scrollbar transparent */
-    }
-
-    :root {
-        --base-font-size: 16px;
-        --dark-blue: #1F4782;
-        --dark-gray: #303335;
-        --golden: #AB834C;
-        --golden-tainoi: #E9BE71;
-        --gray: #818C96;
-        --white: #FFF;
-    }
-
-    *,
-    ::after,
-    ::before {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-       
-        display: flex;
-        flex-direction: column;
-        font-family: 'Roboto', sans-serif;
-        font-size: 1rem;
-        justify-content: center;
-        min-height: 100vh;
-        position: relative;
-        overflow: hidden;
-
-    }
-
-    .general-container {
-
-        height: 70%;
-        margin: 0 auto;
-        max-width: 100%;
-        width: 100%;
-        position: absolute;
-        top: 7%;
-
-        display: none;
-        transform: translateX(-100%);
-        /* Initially position the element outside the viewport */
-        animation: slideIn 0.6s forwards;
-        /* Apply animation */
-    }
-
-    @keyframes slideIn {
-        0% {
-            transform: translateX(-100%);
-            /* Start position outside the viewport */
-            opacity: 0;
-            /* Hide the element */
+@push('styles')
+    <style>
+        .section-container {
+            width: 100%;
+            max-width: 95%;
+            margin: 3% auto;
         }
 
-        100% {
-            transform: translateX(0);
-            /* End position at 0% left offset */
-            opacity: 1;
-            /* Show the element */
+        .img-slider__container-1 {
+            display: flex;
+            column-gap: 20px;
+            width: 100%;
+            overflow-x: auto;
+            /* Allow horizontal scrolling */
+            overflow-y: hidden;
+            /* Hide vertical scrollbar */
+            justify-content: start;
+            align-items: center;
+            /* Set a fixed height */
+            height: 21vh;
         }
-    }
 
-    .radio {
-        display: none;
-    }
+        .img-slider__container-1 .img-items {
+            flex-shrink: 0;
+            /* Prevent items from shrinking */
+            width: auto;
+            margin: 2px;
+            /* Adjust margin as needed */
+        }
 
-    .content {
-       
-        border-radius: .2rem;
-        cursor: pointer;
-        flex: 1;
-        margin-right: 0.8rem;
-        overflow: hidden;
-        position: relative;
-        transition: all 0.6s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+        .img-slider__container-1 .img-items img {
+            width: 154px;
+            max-height: 149px;
+            transition: transform 0.5s;
+            /* Simplify transition */
+        }
 
-    }
+        .img-slider__container-1 .img-items img:hover {
+            transform: scale(1.2);
+            /* Increase scale on hover */
+        }
 
-    .content:hover {
-        box-shadow: 0.3rem 0.3rem 0.4rem rgba(0, 0, 0, 0.3);
-    }
+        .section-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            max-width: 75%;
+            margin-left: 14%;
+        }
 
-    .icon {
-        align-items: center;
-        background-color: white;
-        border-radius: 0%;
-        bottom: 1rem;
-        color: var(--golden-tainoi);
-        display: flex;
-        font-size: 1.5rem;
-        height: 5rem;
-        justify-content: center;
-        left: 18px;
-        position: absolute;
-        width: 5rem;
-    }
+        .section-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            max-width: 75%;
+            margin-left: 14%;
+            height: 27vh;
+            background-color: rgb(204, 204, 204);
+            border-radius: 10px;
+        }
 
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
 
+        .button {
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            outline: none;
+        }
 
-    .card-title {
-        bottom: 1.2rem;
-        color: var(--white);
-        display: flex;
-        flex-direction: column;
-        font-size: 1.4rem;
-        left: 9%;
-        line-height: 1.1;
-        opacity: 0;
-        position: absolute;
-        text-shadow: 0.05rem 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
-        transform: translateX(2rem);
-        transition: 290ms cubic-bezier(0.05, 0.61, 0.41, 0.95) 300ms;
-        transition-property: opacity, transform;
-        user-select: none;
-        white-space: nowrap;
-    }
+        .logo-image {
+            width: 50px;
+            height: auto;
+        }
 
-    .subtitle {
-        font-size: 0.9rem;
-    }
+        .image-container {
+            position: relative;
+            flex: 1;
+        }
 
-    /* Effect */
-    .radio:checked+.content {
-        border-radius: 1rem;
-        box-shadow: 0.3rem 0.3rem 0.4rem rgba(0, 0, 0, 0.3);
-        flex: 10;
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
 
-    }
+        .product-details {
+            flex: 1;
+            padding: 0 20px;
+            margin-top: 0;
+            color: rgb(139, 111, 78);
+            text-transform: uppercase;
+            max-width: calc(30% - 20px);
+        }
 
-    .radio:checked+.content>.modal-container>.card-title {
-        opacity: 1;
-        transform: translateX(0);
-        transition: opacity 1s ease, transform 1s ease;
-        /* Apply transition */
-    }
+        .product-details h2 {
+            margin-top: 0;
+        }
 
-    .content>.card-title {
-        opacity: 0;
-        transform: translateX(-100%);
-        transition: opacity 1s ease, transform 1s ease;
-        /* Apply transition */
-    }
+        .buy-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
+        .nav-button {
+            width: 100%;
+            padding: 1%;
+        }
 
+        .image-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            overflow: hidden;
+            /* Hide any overflowing content */
+        }
 
+        .product-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    .modal-container {
-        display: flex;
-        width: 100%;
-        padding: 4% 2%;
-        box-sizing: border-box;
-        height: 100%;
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
+.image-box {
+    width: 75%;
+    max-width: 100%; /* Ensure image doesn't exceed parent width */
+    text-align: center; /* Center image horizontally */
+}
 
-    .box {
-        box-shadow: 0 20px 30px rgba(0, 0, 0, .1);
-        border-radius: 2%;
-        padding: 5px;
-        height: 40%;
-        background-color: rgba(255, 255, 255, 0.2);
-    }
+.centered-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
 
-    .box>img {
-        border-radius: 8%;
-    }
+        .image-box img {
+            max-width: 100%;
+            max-height: 100%;
+        }
 
+        .image-box p {
+            margin-top: 5px;
+            font-size: 14px;
+        }
 
-    /*   .box {
-        flex: 1;
-        overflow: hidden;
-        transition: .5s;
-        margin: 0 2%;
-        box-shadow: 0 20px 30px rgba(0, 0, 0, .1);
-        line-height: 0;
-    }
-    */
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            border-bottom: 1px solid rgb(136, 136, 136);
+            text-transform: uppercase;
+            flex-wrap: nowrap;
+            /* Ensure items stay on one line */
+        }
 
-    .box>img {
-        width: 200%;
-        height: calc(100% - 3.8vh);
-        object-fit: cover;
-        transition: .5s;
-    }
+        .nav-item {
+            padding: 2px 25px;
+            color: #fff;
+            cursor: pointer;
+            margin: 13px;
+            height: 22px;
+            font-size: large;
+            font-weight: bold;
+            white-space: nowrap;
+            /* Prevent text wrapping */
+        }
 
-    .box>span {
-        font-size: 2vh;
-        display: block;
-        text-align: center;
-        height: 4vh;
-        line-height: 2.6;
-    }
+        @media screen and (max-width: 768px) {
+            .section-row {
+                flex-direction: column;
+            }
 
-    .box:hover {
-        flex: 1 1 5%;
-    }
+            .section-menu {
+                height: 13vh;
+            }
 
-    .box:hover>img {
-        width: 100%;
-        height: 100%;
-    }
-</style>
+            .img-slider__container-1 {
+                height: 13vh;
+            }
 
-</html>
+            .nav-item {
+                padding: 5px 10px;
+            }
+        }
+    </style>
+@endpush
+@push('scripts')
+    <script>
+        function scrollSlider(offset) {
+    const container = document.getElementById('imageSlider');
+    container.scrollLeft += offset;
+}
+    </script>
+@endpush
