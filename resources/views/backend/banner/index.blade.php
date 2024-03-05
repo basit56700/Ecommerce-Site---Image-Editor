@@ -24,6 +24,7 @@
               <th>Series</th>
               <th>Slug</th>
               <th>Photo</th>
+              <th>Category Logo</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -36,6 +37,7 @@
               <th>Series</th>
               <th>Slug</th>
               <th>Photo</th>
+              <th>Category Logo</th>
               <th>Status</th>
               <th>Action</th>
               </tr>
@@ -55,6 +57,13 @@
                             <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid zoom" style="max-width:100%" alt="avatar.png">
                         @endif
                     </td>
+                    <td>
+                      @if($banner->cat_logo)
+                          <img src="{{$banner->cat_logo}}" class="img-fluid" style="max-width:80px" alt="{{$banner->photo}}">
+                      @else
+                          <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
+                      @endif
+                  </td>
                     <td>
                         @if($banner->status=='active')
                             <span class="badge badge-success">{{$banner->status}}</span>

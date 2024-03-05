@@ -44,6 +44,7 @@ class CategoryController extends Controller
             'title'=>'string|required',
             'summary'=>'string|nullable',
             'photo'=>'string|nullable',
+            
             'status'=>'required|in:active,inactive',
             'is_parent'=>'sometimes|in:1',
             'parent_id'=>'nullable|exists:categories,id',
@@ -108,6 +109,7 @@ class CategoryController extends Controller
             'title'=>'string|required',
             'summary'=>'string|nullable',
             'photo'=>'string|nullable',
+          
             'status'=>'required|in:active,inactive',
             'is_parent'=>'sometimes|in:1',
             'parent_id'=>'nullable|exists:categories,id',

@@ -3,22 +3,6 @@
 @section('title', 'Best Board || PRODUCT DETAIL')
 @section('main-content')
 
-<div class="horizontal">
-
-    <div class="verticals ten offset-by-one">
-
-        <ol class="breadcrumb breadcrumb-fill2">
-            <li>
-        <a href="javascript:void(0);">
-          <i class="fa fa-home"></i>                  
-        </a>
-    </li>
-            <li><a href="{{route("home")}}">Home</a></li> 
-            <li><a href="{{route("product-grids")}}">Category</a></li> 
-        </ol>
-    </div>
-
-</div>
 <section class="product-container">
     <div class="product-image">
         <img src="{{ asset('photos/1/HERINGWOOD.png') }}" alt="Product Image">
@@ -65,20 +49,6 @@
         margin-bottom: 20px;
     }
 
-    .breadcrumb {
-        margin-bottom: 20px;
-		background-color: transparent !important;
-    }
-
-    .breadcrumb-item {
-        display: inline-block;
-        margin-right: 5px;
-        font-size: 16px;
-    }
-
-    .breadcrumb-item:last-child {
-        font-weight: bold;
-    }
 </style>
 @endpush
 @push('scripts')

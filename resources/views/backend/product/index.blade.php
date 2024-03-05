@@ -28,7 +28,8 @@
               <th>Condition</th>
               <th>Brand</th>
               <th>Stock</th>
-              <th>Photo</th>
+              <th>Product Photo</th>
+              <th>Room Photo</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -45,7 +46,8 @@
               <th>Condition</th>
               <th>Brand</th>
               <th>Stock</th>
-              <th>Photo</th>
+              <th>Product Photo</th>
+              <th>Room Photo</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -90,6 +92,17 @@
                             <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
                         @endif
                     </td>
+                    <td>
+                      @if($product->photo)
+                          @php
+                            $room=explode(',',$product->room_photo);
+                            // dd($photo);
+                          @endphp
+                          <img src="{{$room[0]}}" class="img-fluid zoom" style="max-width:80px" alt="{{$product->room_photo}}">
+                      @else
+                          <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
+                      @endif
+                  </td>
                     <td>
                         @if($product->status=='active')
                             <span class="badge badge-success">{{$product->status}}</span>

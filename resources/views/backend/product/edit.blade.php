@@ -121,16 +121,31 @@
           @enderror
         </div>
         <div class="form-group">
-          <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
+          <label for="inputPhoto" class="col-form-label">Product Photo <span class="text-danger">*</span></label>
           <div class="input-group">
               <span class="input-group-btn">
-                  <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
+                  <a  data-input="thumbnail-product" data-preview="holder-product" class="btn btn-primary lfm text-white">
                   <i class="fas fa-image"></i> Choose
                   </a>
               </span>
-          <input id="thumbnail" class="form-control" type="text" name="photo" value="{{$product->photo}}">
+          <input id="thumbnail-product" class="form-control" type="text" name="photo" value="{{$product->photo}}">
         </div>
-        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+        <div id="holder-product" style="margin-top:15px;max-height:100px;"></div>
+          @error('photo')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="inputPhoto" class="col-form-label">Room Photo <span class="text-danger">*</span></label>
+          <div class="input-group">
+              <span class="input-group-btn">
+                  <a id="lfm" data-input="thumbnail-room" data-preview="holder-room" class="btn btn-primary lfm text-white">
+                  <i class="fas fa-image"></i> Choose
+                  </a>
+              </span>
+          <input id="thumbnail-room" class="form-control" type="text" name="room_photo" value="{{$product->room_photo}}">
+        </div>
+        <div id="holder-room" style="margin-top:15px;max-height:100px;"></div>
           @error('photo')
           <span class="text-danger">{{$message}}</span>
           @enderror
@@ -168,7 +183,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 <script>
-    $('#lfm').filemanager('image');
+    $('.lfm').filemanager('image');
 
     
 </script>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Banner;
+use App\Models\Category;
 use Illuminate\Support\Str;
+
 class BannerController extends Controller
 {
     /**
@@ -14,8 +16,8 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $banner=Banner::orderBy('id','DESC')->paginate(10);
-        return view('backend.banner.index')->with('banners',$banner);
+        $banner = Banner::orderBy('id', 'DESC')->paginate(10);
+        return view('backend.banner.index')->with('banners', $banner);
     }
 
     /**
@@ -25,7 +27,9 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('backend.banner.create');
+        $parentCategories = Category::getAllParentWithChild();
+        return view('backend.banner.create')->with('parent_cats', $parentCategories);
+
     }
 
     /**
@@ -36,33 +40,35 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        /* dd($request->all()); */
+    
+        /*  dd($request->all()); */
         // return $request->all();
-        $this->validate($request,[
-            'series'=>'string|required|max:50',
-            'category'=>'string|required|max:50',
-            'sub_category'=>'string|required|max:50',
-            'description'=>'string|nullable',
-            'photo'=>'string|required',
-            'status'=>'required|in:active,inactive',
+        $this->validate($request, [
+            'series' => 'string|required|max:50',
+            'category' => 'string|required|max:50',
+            'cat_id' => 'string|required|max:50',
+            'sub_category' => 'string|required|max:50',
+            'description' => 'string|nullable',
+            'photo' => 'string|required',
+            'cat_logo' => 'string|nullable',
+            'status' => 'required|in:active,inactive',
         ]);
-        $data=$request->all();
-        $slug=Str::slug($request->sub_category);
-        $count=Banner::where('slug',$slug)->count();
-        if($count>0){
-            $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
+        $data = $request->all();
+        $slug = Str::slug($request->sub_category);
+        $count = Banner::where('slug', $slug)->count();
+        if ($count > 0) {
+            $slug = $slug . '-' . date('ymdis') . '-' . rand(0, 999);
         }
-        $data['slug']=$slug;
+        $data['slug'] = $slug;
 
-     /*    dd($data); */
+        /*    dd($data); */
         // return $slug;
-        $status=Banner::create($data);
-        
-        if($status){
-            request()->session()->flash('success','Banner successfully added');
-        }
-        else{
-            request()->session()->flash('error','Error occurred while adding banner');
+        $status = Banner::create($data);
+
+        if ($status) {
+            request()->session()->flash('success', 'Banner successfully added');
+        } else {
+            request()->session()->flash('error', 'Error occurred while adding banner');
         }
         return redirect()->route('banner.index');
     }
@@ -86,8 +92,9 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        $banner=Banner::findOrFail($id);
-        return view('backend.banner.edit')->with('banner',$banner);
+        $parentCategories = Category::getAllParentWithChild();
+        $banner = Banner::findOrFail($id);
+        return view('backend.banner.edit')->with(['banner'=>$banner,'parent_cats'=> $parentCategories]);
     }
 
     /**
@@ -99,23 +106,26 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $banner=Banner::findOrFail($id);
-        $this->validate($request,[
-            'series'=>'string|required|max:50',
-            'category'=>'string|required|max:50',
-            'sub_category'=>'string|required|max:50',
-            'description'=>'string|nullable',
-            'photo'=>'string|required',
-            'status'=>'required|in:active,inactive',
+        /* dd($request->all()); */
+        $banner = Banner::findOrFail($id);
+        $this->validate($request, [
+            'series' => 'string|required|max:50',
+            'category' => 'required|max:50',
+            'cat_id' => 'string|required|max:50',
+            'cat_logo' => 'string|nullable',
+            'sub_category' => 'string|required|max:50',
+            'description' => 'string|nullable',
+            'photo' => 'string|required',
+
+            'status' => 'required|in:active,inactive',
         ]);
-        $data=$request->all();
-        
-        $status=$banner->fill($data)->save();
-        if($status){
-            request()->session()->flash('success','Banner successfully updated');
-        }
-        else{
-            request()->session()->flash('error','Error occurred while updating banner');
+        $data = $request->all();
+
+        $status = $banner->fill($data)->save();
+        if ($status) {
+            request()->session()->flash('success', 'Banner successfully updated');
+        } else {
+            request()->session()->flash('error', 'Error occurred while updating banner');
         }
         return redirect()->route('banner.index');
     }
@@ -128,13 +138,12 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        $banner=Banner::findOrFail($id);
-        $status=$banner->delete();
-        if($status){
-            request()->session()->flash('success','Banner successfully deleted');
-        }
-        else{
-            request()->session()->flash('error','Error occurred while deleting banner');
+        $banner = Banner::findOrFail($id);
+        $status = $banner->delete();
+        if ($status) {
+            request()->session()->flash('success', 'Banner successfully deleted');
+        } else {
+            request()->session()->flash('error', 'Error occurred while deleting banner');
         }
         return redirect()->route('banner.index');
     }

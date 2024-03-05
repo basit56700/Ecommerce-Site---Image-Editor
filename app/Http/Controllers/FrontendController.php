@@ -236,18 +236,12 @@ class FrontendController extends Controller
         }
 
     }
-    public function productSubCat(Request $request){
-        $products=Category::getProductBySubCat($request->sub_slug);
+    public function productSubCat($id){
+       
+        $products=Category::getProductByCat($id);
+        /* dd($products); */
         // return $products;
-        $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
-
-        if(request()->is('e-shop.loc/product-grids')){
-            return view('frontend.pages.product-grids')->with('products',$products->sub_products)->with('recent_products',$recent_products);
-        }
-        else{
-            return view('frontend.pages.product-lists')->with('products',$products->sub_products)->with('recent_products',$recent_products);
-        }
-
+        return $products;
     }
 
     public function blog(){
@@ -406,22 +400,6 @@ class FrontendController extends Controller
         return view('auth.passwords.old-reset');
     }
 
-    public function subscribe(Request $request){
-        if(! Newsletter::isSubscribed($request->email)){
-                Newsletter::subscribePending($request->email);
-                if(Newsletter::lastActionSucceeded()){
-                    request()->session()->flash('success','Subscribed! Please check your email');
-                    return redirect()->route('home');
-                }
-                else{
-                    Newsletter::getLastError();
-                    return back()->with('error','Something went wrong! please try again');
-                }
-            }
-            else{
-                request()->session()->flash('error','Already Subscribed');
-                return back();
-            }
-    }
+    
     
 }
