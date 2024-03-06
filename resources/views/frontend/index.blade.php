@@ -7,8 +7,8 @@
         $banners = DB::table('banners')->where('status', 'active')->get();
     @endphp
 
-    
-    <div class="container">
+
+        <div class="container">
         <main>
             <div id="main">
                 <div class="indicator"></div>
@@ -89,59 +89,85 @@
             </div>
         </main>
 
-    </div>
+    </div> 
 
+    <div class="brands">
+        <div class="container">
+            <div>
+                <div class="brands-title row">
+                    <h2>Best Board Brands</h2>
+                </div>
 
-    <div class="container">
-        <div>
-            <div class="brands row">
-                <h2>Best Board Brands</h2>
+                <div class="image-boxes">
+                    <div class="box-image row">
+
+                        @foreach ($banners as $banner)
+                            <div class="img-items col-2">
+                                <img src="{{ asset($banner->cat_logo) }}">
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
             </div>
-
-            <div class="image-boxes">
-                <div class="box-image row">
-
-                    @foreach ($banners as $banner)
-                        <div class="img-items col-2">
-                            <img src="{{ asset($banner->cat_logo) }}">
-                        </div>
-                    @endforeach
+        </div>
+    </div>
+    <div class="about-us">
+        <div class="container">
+            <div class="row about-title">
+                <div class="col-8">
+                    <h2 class="">About Us</h2>
+                </div>
+                <div class="col-4">
 
                 </div>
             </div>
+            <div class="row">
+                <div class="col-4 mt-5">
+                    <img id="about-img" src="{{ asset('frontend/img/aboutus.png ') }}"></img>
 
+                </div>
+                <div class="col-8">
+                    <p id="about-para">We cherry-picked the best of designs, textures and finesse for you to ponder
+                        through.
+                        A wide range of choices refined in accordance to  the vision you have for your space. Best Board
+                        expertise in designing for comfort and refresh the idea of interior design into something more
+                        personal and exquisite just for you! </p>
+
+
+                </div>
+            </div>
+            <div></div>
 
         </div>
-
-
-
 
     </div>
 
 
+
     @foreach ($banners as $key => $banner)
-        @if ($key >= 2)
+        @if ($key >= 1)
         @break
     @endif
     <div class="category-banners">
-        <div class="container">
+        <div class="container ">
             <div class="cat-logo row">
                 <div class="col-2">
                     <img src="{{ asset($banner->cat_logo) }}">
                 </div>
                 <div class="col-8">
-                    <!-- Content for the middle section (if any) -->
                 </div>
                 <div class="col-2">
                     <button class="see-more">See more</button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row slider-div">
                 <div class="col-2">
                     <h5 class="banner-title">{{ $banner->description }}</h5>
 
                 </div>
                 <div class="col-10 slider-product">
+
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php $products = DB::table('products')
@@ -165,80 +191,125 @@
         </div>
     </div>
 @endforeach
-<div class="about-us">
-    <div class="container">
-        <div class="row about-title">
-            <div class="col-4">
-                <h2 class="">About Us</h2>
-            </div>
-            <div class="col-10">
 
+<div class="threshold"
+    style="background-image: url('{{ asset('frontend/img/newsLetter.png') }}'); background-size: cover; background-repeat: no-repeat;">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+
+        <div class="threshold-container row text-center">
+            <div class="col-12 mb-4">
+                <h1 class="threshold-title">Threshold of Success</h1>
+            </div>
+
+            <div class="col-4  align-items-center">
+                <img class="threshold-logo" src="{{ asset('frontend/img/threshlod-tag.png') }}" width="100"
+                    height="100">
+                <h1 class="threshold-num">10+</h1>
+                <h1 class="threshold-text">Brands</h1>
+            </div>
+
+            <div class="col-4 align-items-center">
+
+                <img class="threshold-logo" src="{{ asset('frontend/img/threshlod-ring.png') }}" width="100"
+                    height="100">
+                <h1 class="threshold-num">700+</h1>
+                <h1 class="threshold-text">Designs</h1>
+            </div>
+
+
+            <div class="col-4 align-items-center">
+                <img class="threshold-logo" src="{{ asset('frontend/img/threshlod-tick.png') }}" width="100"
+                    height="100">
+                <h1 class="threshold-num">1500+</h1>
+                <h1 class="threshold-text">Projects</h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <img id="about-img" src="{{ $banners[0]->photo }}"></img>
-
-            </div>
-            <div class="col-8">
-                <p id="about-para">We cherry-picked the best of designs, textures and finesse for you to ponder through.
-                    A wide range of choices refined in accordance to  the vision you have for your space. Best Board
-                    expertise in designing for comfort and refresh the idea of interior design into something more
-                    personal and exquisite just for you! </p>
-
-
-            </div>
-        </div>
-        <div></div>
-
     </div>
-
 </div>
 
-<div class="news-letter" style="background-image: url('{{ asset("backend/img/background.jpg") }}'); background-size: cover; background-repeat: no-repeat;">
+
+
+
+<div class="news-letter" style="background-image: url('{{ asset('frontend/img/NewsletterDark 1.png') }}'); background-size: cover; background-repeat: no-repeat;">
     <div class="container position-relative">
-        <div class="row">
-            <div class="news-title col-6">
-                <h1>News Letter & Updates</h1>
+        <div class="row slider2-div">
+            <div class="col-12">
+                <h1 class="news-title">News Letter & Updates</h1>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-10">
+                <div class="col-10 slider-product">
+                    <div class="swiper-container2">
+                        <div class="swiper-wrapper">
+                            <?php $products = DB::table('products')->where('cat_id', 13)->where('is_featured', '1')->get(); ?>
+                            @foreach ($products as $product)
+                                <div class="swiper-slide">
+                                    <img class="product-photo m-2 img-items" src="{{ asset($product->photo) }}"
+                                        width="527px" height="527px ">
+                                    <h4 class="pl-2">{{ $product->summary }}</h4>
+                                </div>
+                            @endforeach
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination2"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="row">
-            <form method="POST" {{-- action="{{ route('') }}" --}}>
-                <div class="col-12 d-flex justify-content-end position-absolute bottom-2 right-2 mb-3">
-                    <input id="news-input" class="form-control mr-2" placeholder="Enter Your Email Here!">
-                    <button id="news-button" type="submit" class="btn btn-primary">Submit</button>
+        <form method="POST" {{-- action="{{ route('') }}" --}}>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-end mt-3">
+                    <button id="news-button" type="submit" class="btn btn-primary">See more</button>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
+
 
 
 
 
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-<!-- Initialize Swiper -->
-<script>
-    var swiper = new Swiper('.swiper-container', {
-        // Optional parameters for the first Swiper instance
-        slidesPerView: '2.8',
-        spaceBetween: 2, // Adjust this value to reduce the space between slides
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
-</script>
 @endsection
 
 @push('styles')
 <style>
-    .news-input{
+    .threshold-container {
+        width: 90%;
+        margin-top: 200px;
+        margin-bottom: 200px;
+
+    }
+
+    .threshold-logo {
+        padding: 4%;
+        margin: 20px;
+    }
+
+    .threshold-text {
+        padding: 4%;
+        margin: 20px;
+
+    }
+
+    .threshold-num {
+        padding: 4%;
+        margin: 20px;
+        font-size: 60px !important;
+    }
+
+    .about-us {
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom:150px;
+        max-height:650px;
+    }
+
+    .news-input {
         background-color: #FFFFFF;
         border: 1px solid #000000;
         border-radius: 50px;
@@ -254,20 +325,28 @@
     }
 
     #news-button {
-        background-color: #FFFFFF;
+        background-color: transparent;
         border-radius: 50px;
+        border-color: white;
         height: 78px;
         width: 261px;
+        margin-bottom: 31px;
     }
 
     #about-para {
         font-size: 30px;
         font-weight: 400;
+        word-wrap: break-word;
+        line-height: 1.5;
+        padding: 10px;
+        font-weight: 500;
+        margin-top: 100px;
     }
 
     #about-img {
-        width: 600px;
-        height: 510px;
+        width: 100%;
+        margin-top: 100px;
+
     }
 
     .about-title {
@@ -285,6 +364,7 @@
 
     .slider-product {
         overflow: hidden;
+        margin-top: 50px;
     }
 
     .swiper-horizontal>.swiper-pagination-bullets,
@@ -320,8 +400,9 @@
     }
 
     .product-photo {
-        max-width: 593px;
-        max-height: 593px;
+        max-width: 92%;
+        height: 45vh;
+        max-height: 92%;
     }
 
     .banner {
@@ -341,7 +422,6 @@
         padding: 2%;
         max-width: 100%;
         position: relative;
-        border-bottom: 2px solid black;
         margin-top: 6%;
     }
 
@@ -350,14 +430,29 @@
         /* Align the logo to the left */
     }
 
-    .brands {
+    .brands-title {
         margin-top: 6%;
 
 
     }
 
+    .news-letter {}
+
+    .threshold {}
+
+    .threshold h1 {
+        color: white;
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+
+    .news-letter h4 {
+        color: #FFFFFF;
+    }
+
     .news-letter h1 {
-        color: rgb(55, 55, 55);
+        color: rgb(255, 255, 255);
         font-weight: 700;
         padding-bottom: 15px;
         padding-top: 5px;
@@ -365,9 +460,13 @@
         position: relative;
         padding: 2%;
         font-size: 50px;
-        height: 886px;
+        margin-top: 20px;
+
+        border-bottom: 2px solid rgb(255, 255, 255);
+
     }
-    .cat-title{
+
+    .cat-title {
         color: rgb(55, 55, 55);
         font-weight: 700;
         padding-bottom: 15px;
@@ -377,8 +476,9 @@
         position: relative;
         padding: 2%;
         font-size: 30px;
-        
+
     }
+
     .about-us h2 {
         color: rgb(55, 55, 55);
         font-weight: 700;
@@ -390,7 +490,7 @@
         font-size: 50px;
     }
 
-    .brands h2 {
+    .brands-title h2 {
         color: rgb(55, 55, 55);
         font-weight: 700;
         padding-bottom: 15px;
@@ -413,20 +513,13 @@
     }
 
 
-    /* Add a pseudo-element to create the line */
-    .brands h2::after {
+    .brands-title h2::after {
         content: '';
-        /* Add content for the pseudo-element */
         position: absolute;
-        /* Position the pseudo-element absolutely */
         bottom: -2px;
-        /* Position the pseudo-element 2 pixels above the bottom of the heading */
         left: 0;
-        /* Align the pseudo-element to the left */
         width: 100%;
-        /* Set the width of the pseudo-element to 100% */
         border-bottom: 2px solid black;
-        /* Add a solid underline */
     }
 
     .image-boxes {
@@ -442,6 +535,7 @@
         display: flex;
         column-gap: 20px;
         width: 100%;
+        margin-bottom: 60px;
         overflow-x: hidden;
         /* Allow horizontal scrolling */
         overflow-y: hidden;
@@ -449,20 +543,23 @@
         justify-content: start;
         align-items: center;
         /* Set a fixed height */
-        height: 21vh;
     }
 
     .box-image .img-items {
-        flex-shrink: 0;
-        /* Prevent items from shrinking */
-        width: auto;
-        margin-left: 2%;
-        /* Adjust margin as needed */
+        flex: 1;
+        max-width: calc(100% / 6); /* Assuming you want 6 images per row */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 40px;
+        margin-top: 20px
+        
     }
 
     .box-image .img-items img {
-        width: 100%;
-        max-height: 149px;
+        max-width: 100%;
+        height: auto;
+
         transition: transform 0.5s;
         /* Simplify transition */
     }
@@ -471,8 +568,42 @@
         transform: scale(1.2);
         /* Increase scale on hover */
     }
+
+    .slider-div {
+        margin-right: -96px;
+    }
+    .slider2-div {
+        margin-right: -336px;
+    }     
+
+
 </style>
 @endpush
 
 @push('scripts')
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        // Optional parameters for the first Swiper instance
+        slidesPerView: '2.8',
+        spaceBetween: 2, // Adjust this value to reduce the space between slides
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+    var swiper2 = new Swiper('.swiper-container2', {
+        // Optional parameters for the first Swiper instance
+        slidesPerView: '2.3',
+        spaceBetween: 2, // Adjust this value to reduce the space between slides
+        pagination: {
+            el: '.swiper-pagination2',
+            clickable: true,
+        },
+    });
+</script>
 @endpush

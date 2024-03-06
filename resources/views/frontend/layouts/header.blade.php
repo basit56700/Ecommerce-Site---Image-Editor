@@ -3,7 +3,8 @@
         <div class="left-section">
             <div class="logo">
                 <a href="#">
-                    <img id="logo-header" src='{{ asset('./images/logo.png') }}' alt="Schon">
+                    <?php $settings=DB::table("settings")->first();?>
+                    <img id="logo-header" src='{{ asset($settings->logo) }}' alt="Schon">
                 </a>
             </div>
             <div class="nav-menu">
@@ -61,8 +62,9 @@
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
-        padding: 20px 36px !important;
+        padding: 2px 36px !important;
         max-width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
     }
 
     nav .left-section {
